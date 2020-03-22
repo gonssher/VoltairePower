@@ -1,0 +1,78 @@
+﻿@model VoltairePower.Models.SolarSheetDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Solar Sheet Registration</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+
+            @if (ViewBag.Message != null)
+            {
+                <span style="color:red">@ViewBag.Message</span><br />
+            }
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SolarType" class="control-label"></label>
+                <input asp-for="SolarType" class="form-control" />
+                <span asp-validation-for="SolarType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label"></label>
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstalledDate" class="control-label"></label>
+                <input asp-for="InstalledDate" class="form-control" />
+                <span asp-validation-for="InstalledDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxPower" class="control-label"></label>
+                <input asp-for="MaxPower" class="form-control" />
+                <span asp-validation-for="MaxPower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OperatingVoltage" class="control-label"></label>
+                <input asp-for="OperatingVoltage" class="form-control" />
+                <span asp-validation-for="OperatingVoltage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModuleEffeciency" class="control-label"></label>
+                <input asp-for="ModuleEffeciency" class="form-control" />
+                <span asp-validation-for="ModuleEffeciency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OperatingTemperature" class="control-label"></label>
+                <input asp-for="OperatingTemperature" class="form-control" />
+                <span asp-validation-for="OperatingTemperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CableConnector" class="control-label"></label>
+                <input asp-for="CableConnector" class="form-control" />
+                <span asp-validation-for="CableConnector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

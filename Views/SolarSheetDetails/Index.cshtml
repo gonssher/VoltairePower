@@ -1,0 +1,83 @@
+﻿@model IEnumerable<VoltairePower.Models.SolarSheetDetail>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SolarType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstalledDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxPower)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperatingVoltage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleEffeciency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperatingTemperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CableConnector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SolarType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstalledDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxPower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperatingVoltage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleEffeciency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperatingTemperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CableConnector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

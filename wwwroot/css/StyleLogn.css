@@ -1,0 +1,25 @@
+﻿body {
+    background-image: url("/images/background3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+
+form-group {
+    font-weight: bold;
+    display: inline-block;
+    float: left;
+    display: inline-block;
+    width: 210px;
+    text-align: right;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+

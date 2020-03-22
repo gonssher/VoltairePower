@@ -1,0 +1,24 @@
+﻿body {
+    background-image: url("/images/background1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    font-weight: bold;
+    font-size: large;
+   
+}
+
+p.c {
+    font-size: 200%;
+}
+
+p.b{
+    font-size:400%;
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
