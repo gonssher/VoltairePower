@@ -54,7 +54,7 @@ namespace VoltairePower.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SolarType,CompanyName,InstalledDate,MaxPower,OperatingVoltage,ModuleEffeciency,OperatingTemperature,CableConnector,Quantity")] SolarSheetDetail solarSheetDetail)
+        public async Task<IActionResult> Create([Bind("Id,SolarSize,Type,NumberofInverters,InverterMakes,InverterModel,InverterSize,NumberOfSolarStrings,SolarStringsolarConnection,SolarStringsolarModel,NumberOfWatts,Vmpp,Voc,Impp,Isc,TemCoeffoicient")] SolarSheetDetail solarSheetDetail)
         {
             if (ModelState.IsValid)
             {
@@ -75,8 +75,9 @@ namespace VoltairePower.Controllers
                     ViewBag.Message = "Your solar sheet information has been registered!";
 
                     return View("Confirm");
+
                 }
-                catch 
+                catch
                 {
                     ViewBag.Message = "An error has occurred. Please try again!";
 
@@ -107,7 +108,7 @@ namespace VoltairePower.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SolarType,CompanyName,InstalledDate,MaxPower,OperatingVoltage,ModuleEffeciency,OperatingTemperature,CableConnector,Quantity")] SolarSheetDetail solarSheetDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SolarSize,Type,NumberofInverters,InverterMakes,InverterModel,InverterSize,NumberOfSolarStrings,SolarStringsolarConnection,SolarStringsolarModel,NumberOfWatts,Vmpp,Voc,Impp,Isc,TemCoeffoicient")] SolarSheetDetail solarSheetDetail)
         {
             if (id != solarSheetDetail.Id)
             {

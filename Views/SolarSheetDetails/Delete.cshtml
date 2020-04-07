@@ -6,67 +6,104 @@
 
 <h1>Delete</h1>
 
+<link rel="stylesheet" href="~/css/styleLogn.css" />
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>SolarSheetDetail</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SolarType)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SolarSize)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SolarType)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SolarSize)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompanyName)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Type)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompanyName)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Type)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InstalledDate)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberofInverters)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InstalledDate)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberofInverters)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxPower)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InverterMakes)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxPower)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InverterMakes)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OperatingVoltage)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InverterModel)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OperatingVoltage)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InverterModel)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModuleEffeciency)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InverterSize)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModuleEffeciency)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InverterSize)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OperatingTemperature)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfSolarStrings)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OperatingTemperature)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfSolarStrings)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CableConnector)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SolarStringsolarConnection)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CableConnector)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SolarStringsolarConnection)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantity)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SolarStringsolarModel)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantity)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SolarStringsolarModel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfWatts)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfWatts)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vmpp)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vmpp)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Voc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Voc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Impp)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Impp)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Isc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Isc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TemCoeffoicient)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TemCoeffoicient)
         </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

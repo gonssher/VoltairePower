@@ -4,80 +4,148 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Welcome to Admin panel</h1>
 
+<link rel="stylesheet" href="~/css/styleLogn.css" />
+<style>
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border-left: 1px solid #ddd;
+            padding: 8px;
+            width: 210%;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        #customers th {
+            padding-top: 21px;
+            padding-bottom: 21px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+            width: 210%;
+        }
+</style>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table id="customers">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SolarType)
+                @Html.DisplayNameFor(model => model.SolarSize)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CompanyName)
+                @Html.DisplayNameFor(model => model.Type)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.InstalledDate)
+                @Html.DisplayNameFor(model => model.NumberofInverters)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MaxPower)
+                @Html.DisplayNameFor(model => model.InverterMakes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OperatingVoltage)
+                @Html.DisplayNameFor(model => model.InverterModel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ModuleEffeciency)
+                @Html.DisplayNameFor(model => model.InverterSize)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OperatingTemperature)
+                @Html.DisplayNameFor(model => model.NumberOfSolarStrings)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CableConnector)
+                @Html.DisplayNameFor(model => model.SolarStringsolarConnection)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Quantity)
+                @Html.DisplayNameFor(model => model.SolarStringsolarModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfWatts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vmpp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Impp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Isc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TemCoeffoicient)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SolarType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InstalledDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxPower)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OperatingVoltage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModuleEffeciency)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OperatingTemperature)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CableConnector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SolarSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberofInverters)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InverterMakes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InverterModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InverterSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfSolarStrings)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SolarStringsolarConnection)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SolarStringsolarModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfWatts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vmpp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Impp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Isc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TemCoeffoicient)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

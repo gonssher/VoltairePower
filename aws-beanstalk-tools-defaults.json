@@ -4,7 +4,7 @@
     "profile" : "VP AWS",
     "region"  : "ca-central-1",
     "application" : "VoltairePower",
-    "environment" : "Voltaire-Power-prod",
+    "environment" : "VoltairePower-test",
     "cname"       : "voltairepower-test",
     "solution-stack" : "64bit Windows Server 2016 v2.5.1 running IIS 10.0",
     "environment-type" : "SingleInstance",
