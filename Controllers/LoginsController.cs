@@ -77,7 +77,7 @@ namespace VoltairePower.Controllers
 
                     if (customer.IsCompletedReg)
                     {
-                        return RedirectToAction("Index", "SolarSheetDetails");
+                        return RedirectToAction("MainPage", "Home");
                     }
                     else
                     {
