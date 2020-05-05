@@ -1,12 +1,9 @@
-﻿@model IEnumerable<VoltairePower.Models.Login>
-
+﻿
 @{
     Layout = null;
-    ViewData["Title"] = "Index";
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -25,7 +22,7 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-color: black;
+            background-color: lightgreen;
             overflow-x: hidden;
             padding-top: 20px;
         }
@@ -33,7 +30,7 @@
             .sidenav a {
                 padding: 6px 8px 6px 16px;
                 text-decoration: none;
-                font-size: 15px;
+                font-size: 25px;
                 color: white;
                 display: block;
             }
@@ -44,13 +41,13 @@
 
         .main {
             margin-left: 255px; /* Same as the width of the sidenav */
-            font-size: 20px; /* Increased text to enable scrolling */
+            font-size: 28px; /* Increased text to enable scrolling */
             padding: 0px 10px;
         }
     </style>
 </head>
 
-<body style="background-color:skyblue;">
+<body style="background-color:lightgray;">
 
     <div class="sidenav">
         <a href="/Customers/Index">Registrations</a>
@@ -61,42 +58,8 @@
 
     <center>     <h1> Welcome Admin</h1> </center>
     <div class="main">
-       
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CreatedDate)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CreatedDate)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+
+       </div>
 
     <footer class="fixed-bottom footer text-muted">
         <div class="container">
@@ -106,5 +69,3 @@
 
 </body>
 </html>
-
-

@@ -10,6 +10,7 @@ using VoltairePower.Models;
 
 namespace VoltairePower.Controllers
 {
+
     public class LoginsController : Controller
     {
         private readonly VoltairePowerContext _context;
@@ -75,7 +76,12 @@ namespace VoltairePower.Controllers
 
                     HttpContext.Session.SetInt32("CustomerId", customer.Id);
 
-                    if (customer.IsCompletedReg)
+                    if (customer.Email == "admin@mail.com")
+                    {
+                        return RedirectToAction("AdminPanel", "Home");
+                    }
+
+                    else if (customer.IsCompletedReg)
                     {
                         return RedirectToAction("MainPage", "Home");
                     }
@@ -83,6 +89,8 @@ namespace VoltairePower.Controllers
                     {
                         return RedirectToAction("Create", "SolarSheetDetails");
                     }
+
+
                 }
                 else
                 {
@@ -91,6 +99,7 @@ namespace VoltairePower.Controllers
                 }
             }
             return View(login);
+
         }
 
         // GET: Logins/Edit/5

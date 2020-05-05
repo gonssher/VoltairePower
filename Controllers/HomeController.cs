@@ -27,6 +27,11 @@ namespace VoltairePower.Controllers
             return View();
         }
 
+        public IActionResult AdminPanel()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -4,45 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Welcome to Admin panel</h1>
 
-<link rel="stylesheet" href="~/css/styleLogn.css" />
-<style>
-    #customers {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-        #customers td, #customers th {
-            border-left: 1px solid #ddd;
-            padding: 8px;
-            width: 210%;
-        }
-
-        #customers tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        #customers tr:nth-child(odd) {
-            background-color: #f2f2f2;
-        }
-
-        #customers th {
-            padding-top: 21px;
-            padding-bottom: 21px;
-            text-align: left;
-            background-color: #4CAF50;
-            color: white;
-            width: 210%;
-        }
-</style>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 <table id="customers">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer.Id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.SolarSize)
             </th>
@@ -94,58 +65,61 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SolarSize)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Type)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberofInverters)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InverterMakes)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InverterModel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InverterSize)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfSolarStrings)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SolarStringsolarConnection)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SolarStringsolarModel)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfWatts)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Vmpp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Voc)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Impp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Isc)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TemCoeffoicient)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SolarSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberofInverters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InverterMakes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InverterModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InverterSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSolarStrings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SolarStringsolarConnection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SolarStringsolarModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfWatts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vmpp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Impp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Isc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TemCoeffoicient)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
