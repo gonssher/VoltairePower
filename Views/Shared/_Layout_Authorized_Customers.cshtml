@@ -37,7 +37,7 @@
                         <ul class="navbar-nav flex-grow-1 ">
                             <li class="nav-item dropdown user-menu">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="http://via.placeholder.com/160x160" class="user-image" alt="User Image">
+                                    @*<img src="http://via.placeholder.com/160x160" class="user-image" alt="User Image">*@
                                     <span class="hidden-xs">
                                         @Context.Session.GetString("CustomerName")
                                     </span>
@@ -52,7 +52,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="pull-right padding20"><a href="#">Feedback</a></div>
+                  
                 }
             </div>
         </nav>
@@ -61,7 +61,14 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                
+                @*<div class="user-panel">*@
+                    @*<div class="pull-left image">
+                        <a href="#">
+                            <i class="fa fa-circle text-success"></i>
+                            @ViewData["temp"]
+                        </a>
+                    </div>*@
+                @*</div>*@
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
