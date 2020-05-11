@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VoltairePower.Models;
+using VoltairePower.Repositories;
 
 namespace VoltairePower
 {
@@ -34,6 +35,9 @@ namespace VoltairePower
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
+
+            // Register Forecast repository
+            services.AddScoped<IForecastRepository, ForecastRepository>();
 
             // Add framework services
             services.AddMvc();

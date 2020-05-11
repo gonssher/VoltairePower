@@ -26,6 +26,11 @@ namespace VoltairePower.Controllers
         public IActionResult MainPage() {
             return View();
         }
+        public IActionResult Weather()
+        {
+
+            return View();
+        }
 
         public IActionResult AdminPanel()
         {

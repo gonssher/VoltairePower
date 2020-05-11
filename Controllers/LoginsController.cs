@@ -75,6 +75,7 @@ namespace VoltairePower.Controllers
                     await _context.SaveChangesAsync();
 
                     HttpContext.Session.SetInt32("CustomerId", customer.Id);
+                    HttpContext.Session.SetString("CustomerName", customer.CustName);
 
                     if (customer.Email == "admin@mail.com")
                     {
@@ -83,7 +84,7 @@ namespace VoltairePower.Controllers
 
                     else if (customer.IsCompletedReg)
                     {
-                        return RedirectToAction("MainPage", "Home");
+                        return RedirectToAction("City", "Weather");
                     }
                     else
                     {

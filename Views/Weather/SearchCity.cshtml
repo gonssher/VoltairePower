@@ -1,0 +1,20 @@
+﻿@model VoltairePower.Models.Weather.SearchCity
+
+@{
+    Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
+    ViewData["Title"] = "SearchCity";
+}
+
+<div class="">
+    <form asp-controller="Weather" asp-action="SearchCity">
+        <h2>Search the forecast in a city</h2>
+        <div class="form-group">
+            <label asp-for="CityName" style="font-family: Arial"></label>
+            <input asp-for="CityName" class="form-control" />
+            <span asp-validation-for="CityName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
