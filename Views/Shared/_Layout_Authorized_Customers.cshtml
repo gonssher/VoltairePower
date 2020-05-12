@@ -29,30 +29,31 @@
                     </a>
 
                     @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>*@
-
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>*@
+                  
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse pull-right">
                         <ul class="navbar-nav flex-grow-1 ">
                             <li class="nav-item dropdown user-menu">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     @*<img src="http://via.placeholder.com/160x160" class="user-image" alt="User Image">*@
                                     <span class="hidden-xs">
+                                        <br>
                                         @Context.Session.GetString("CustomerName")
                                     </span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">Profile</a>
                                     <a class="dropdown-item" href="#">Settings</a>
-                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "Home")">Logout</a>
                                 </div>
                             </li>
                             <li class="nav-item">
                             </li>
                         </ul>
                     </div>
-                  
+
                 }
             </div>
         </nav>
@@ -71,6 +72,7 @@
                 @*</div>*@
             </div>
             <ul class="list-unstyled components">
+                <img style="width: 200px; height: auto" src="/images/solarPanelTep.png">
                 <li class="active">
                     <a href="#viewSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-eye"></i> <span class="nav-label"> View </span> <span class="fa fa-chevron-left pull-right"></span></a>
                     <ul class="collapse list-unstyled" id="viewSubMenu">
