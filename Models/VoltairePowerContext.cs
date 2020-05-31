@@ -13,5 +13,6 @@ namespace VoltairePower.Models
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Login> Logins { get; set; }
         public DbSet<SolarSheetDetail> SolarSheetDetails { get; set; }
+        public DbSet<DataGet> LiveDataFeed { get; set; }
     }
 }

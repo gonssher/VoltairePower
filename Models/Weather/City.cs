@@ -25,5 +25,14 @@ namespace VoltairePower.Models.Weather
 
         [Display(Name = "Weather Condition:")]
         public string Weather { get; set; }
+
+        [Display(Name = "Clouds:")]
+        public int Clouds { get; set; }
+
+        [Display(Name = "Sunshine:")]
+        public int Sunshine { get; set; }
+
+        [Display(Name = "Sunrise:")]
+        public int Sunrise { get; set; }
     }
 }

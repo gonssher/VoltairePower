@@ -81,10 +81,9 @@ namespace VoltairePower.Controllers
                     {
                         return RedirectToAction("AdminPanel", "Home");
                     }
-
                     else if (customer.IsCompletedReg)
                     {
-                        return RedirectToAction("City", "Weather");
+                        return RedirectToAction("SearchCity", "Weather");
                     }
                     else
                     {

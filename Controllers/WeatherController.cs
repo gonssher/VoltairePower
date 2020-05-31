@@ -58,6 +58,8 @@ namespace VoltairePower.Controllers
                 viewModel.Temp = weatherResponse.Main.Temp;
                 viewModel.Weather = weatherResponse.Weather[0].Main;
                 viewModel.Wind = weatherResponse.Wind.Speed;
+                viewModel.Clouds = weatherResponse.Clouds.All;
+                viewModel.Sunshine = weatherResponse.Sys.Sunshine;
             }
             return View(viewModel);
         }

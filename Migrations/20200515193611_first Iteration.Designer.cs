@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VoltairePower.Models;
 
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    partial class VoltairePowerContextModelSnapshot : ModelSnapshot
+    [Migration("20200515193611_first Iteration")]
+    partial class firstIteration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,45 +76,6 @@ namespace VoltairePower.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("VoltairePower.Models.DataGet", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Active_Energy_Delivered_Received_kWh")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Active_Power_Kw")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Current_Phase_Average_Mean_A")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Diffuse_Horizontal_Radiation_WM2")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Global_Horizontal_Radiation_WM2")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Timestamp")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Weather_Relative_Humidity_Percent")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Weather_Temperature_Celsius")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Wind_Direction_Degree")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LiveDataFeed");
                 });
 
             modelBuilder.Entity("VoltairePower.Models.Login", b =>
