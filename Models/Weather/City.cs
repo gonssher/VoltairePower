@@ -8,6 +8,7 @@ namespace VoltairePower.Models.Weather
 {
     public class City
     {
+        [Key]
         [Display(Name = "City:")]
         public string Name { get; set; }
 

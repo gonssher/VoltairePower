@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VoltairePower.Models.Weather;
 
 namespace VoltairePower.Models
 {
@@ -14,5 +15,8 @@ namespace VoltairePower.Models
         public DbSet<Login> Logins { get; set; }
         public DbSet<SolarSheetDetail> SolarSheetDetails { get; set; }
         public DbSet<DataGet> LiveDataFeed { get; set; }
+        public DbSet<City> WeatherData { get; set; }
+
+
     }
 }

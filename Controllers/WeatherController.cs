@@ -50,6 +50,8 @@ namespace VoltairePower.Controllers
             WeatherResponse weatherResponse = _forecastRepository.GetForecast(city);
             City viewModel = new City();
 
+       
+   
             if (weatherResponse != null)
             {
                 viewModel.Name = weatherResponse.Name;
