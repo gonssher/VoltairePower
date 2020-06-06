@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +9,11 @@ namespace VoltairePower.Models.Weather
 {
     public class City
     {
-        [Key]
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, Column(Order = 0)]
+        public string ID { get; set; }
+
         [Display(Name = "City:")]
         public string Name { get; set; }
 
@@ -35,5 +40,7 @@ namespace VoltairePower.Models.Weather
 
         [Display(Name = "Sunrise:")]
         public int Sunrise { get; set; }
+
+        public DateTime WeatherDateTime { get; set; } = DateTime.Now;
     }
 }

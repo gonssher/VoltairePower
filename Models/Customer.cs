@@ -63,7 +63,7 @@ namespace VoltairePower.Models
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
 
         [DefaultValue(false)]
         public bool IsCompletedReg { get; set; }

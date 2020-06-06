@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VoltairePower.Models;
 
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    partial class VoltairePowerContextModelSnapshot : ModelSnapshot
+    [Migration("20200606202706_Change to Weather Db")]
+    partial class ChangetoWeatherDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -205,7 +207,6 @@ namespace VoltairePower.Migrations
             modelBuilder.Entity("VoltairePower.Models.Weather.City", b =>
                 {
                     b.Property<string>("ID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Clouds")
@@ -231,9 +232,6 @@ namespace VoltairePower.Migrations
 
                     b.Property<string>("Weather")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("WeatherDateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<float>("Wind")
                         .HasColumnType("real");

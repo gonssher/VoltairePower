@@ -49,8 +49,6 @@ namespace VoltairePower.Controllers
         {
             WeatherResponse weatherResponse = _forecastRepository.GetForecast(city);
             City viewModel = new City();
-
-       
    
             if (weatherResponse != null)
             {
@@ -62,8 +60,12 @@ namespace VoltairePower.Controllers
                 viewModel.Wind = weatherResponse.Wind.Speed;
                 viewModel.Clouds = weatherResponse.Clouds.All;
                 viewModel.Sunshine = weatherResponse.Sys.Sunshine;
+                viewModel.Sunshine = weatherResponse.Sys.Sunrise;
+
+                _forecastRepository.Add(viewModel);
             }
             return View(viewModel);
+
         }
     }
 }
