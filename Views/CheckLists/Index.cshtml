@@ -1,0 +1,228 @@
+﻿@model IEnumerable<VoltairePower.Models.CheckList>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ac_out)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.energy_prod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inspect_panel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shading_issue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.panel_clean)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inspect_array_mount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.array_tilt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.charge_ctrl_settings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.battery_test)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clean_elect_equipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monitor_volt_current)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mac_out)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menergy_prod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Minspect_panel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mshading_issue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mpanel_clean)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Minspect_array_mount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marray_tilt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mcharge_ctrl_settings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mbattery_test)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mclean_elect_equipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mmonitor_volt_current)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sac_out)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senergy_prod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sinspect_panel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sshading_issue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Spanel_clean)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sinspect_array_mount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sarray_tilt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scharge_ctrl_settings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sbattery_test)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sclean_elect_equipment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Smonitor_volt_current)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ac_out)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.energy_prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inspect_panel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shading_issue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.panel_clean)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inspect_array_mount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.array_tilt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.charge_ctrl_settings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.battery_test)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clean_elect_equipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.monitor_volt_current)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mac_out)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Menergy_prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Minspect_panel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mshading_issue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mpanel_clean)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Minspect_array_mount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marray_tilt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mcharge_ctrl_settings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mbattery_test)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mclean_elect_equipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mmonitor_volt_current)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sac_out)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Senergy_prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sinspect_panel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sshading_issue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spanel_clean)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sinspect_array_mount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sarray_tilt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Scharge_ctrl_settings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sbattery_test)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sclean_elect_equipment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Smonitor_volt_current)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,192 @@
+﻿@model VoltairePower.Models.CheckList
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>CheckList</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ac_out" /> @Html.DisplayNameFor(model => model.ac_out)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="energy_prod" /> @Html.DisplayNameFor(model => model.energy_prod)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="inspect_panel" /> @Html.DisplayNameFor(model => model.inspect_panel)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="shading_issue" /> @Html.DisplayNameFor(model => model.shading_issue)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="panel_clean" /> @Html.DisplayNameFor(model => model.panel_clean)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="inspect_array_mount" /> @Html.DisplayNameFor(model => model.inspect_array_mount)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="array_tilt" /> @Html.DisplayNameFor(model => model.array_tilt)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="charge_ctrl_settings" /> @Html.DisplayNameFor(model => model.charge_ctrl_settings)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="battery_test" /> @Html.DisplayNameFor(model => model.battery_test)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="clean_elect_equipment" /> @Html.DisplayNameFor(model => model.clean_elect_equipment)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="monitor_volt_current" /> @Html.DisplayNameFor(model => model.monitor_volt_current)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Mac_out" /> @Html.DisplayNameFor(model => model.Mac_out)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Menergy_prod" /> @Html.DisplayNameFor(model => model.Menergy_prod)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Minspect_panel" /> @Html.DisplayNameFor(model => model.Minspect_panel)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Mshading_issue" /> @Html.DisplayNameFor(model => model.Mshading_issue)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Mpanel_clean" /> @Html.DisplayNameFor(model => model.Mpanel_clean)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Minspect_array_mount" /> @Html.DisplayNameFor(model => model.Minspect_array_mount)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Marray_tilt" /> @Html.DisplayNameFor(model => model.Marray_tilt)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Mcharge_ctrl_settings" /> @Html.DisplayNameFor(model => model.Mcharge_ctrl_settings)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Mbattery_test" /> @Html.DisplayNameFor(model => model.Mbattery_test)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Mclean_elect_equipment" /> @Html.DisplayNameFor(model => model.Mclean_elect_equipment)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Mmonitor_volt_current" /> @Html.DisplayNameFor(model => model.Mmonitor_volt_current)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sac_out" /> @Html.DisplayNameFor(model => model.Sac_out)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Senergy_prod" /> @Html.DisplayNameFor(model => model.Senergy_prod)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sinspect_panel" /> @Html.DisplayNameFor(model => model.Sinspect_panel)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sshading_issue" /> @Html.DisplayNameFor(model => model.Sshading_issue)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Spanel_clean" /> @Html.DisplayNameFor(model => model.Spanel_clean)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sinspect_array_mount" /> @Html.DisplayNameFor(model => model.Sinspect_array_mount)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sarray_tilt" /> @Html.DisplayNameFor(model => model.Sarray_tilt)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Scharge_ctrl_settings" /> @Html.DisplayNameFor(model => model.Scharge_ctrl_settings)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sbattery_test" /> @Html.DisplayNameFor(model => model.Sbattery_test)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Sclean_elect_equipment" /> @Html.DisplayNameFor(model => model.Sclean_elect_equipment)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Smonitor_volt_current" /> @Html.DisplayNameFor(model => model.Smonitor_volt_current)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

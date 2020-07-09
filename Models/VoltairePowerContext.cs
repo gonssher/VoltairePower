@@ -17,6 +17,8 @@ namespace VoltairePower.Models
         public DbSet<DataGet> LiveDataFeed { get; set; }
         public DbSet<City> WeatherData { get; set; }
 
+        public DbSet<CheckList> CheckLists { get; set; }
+
 
     }
 }

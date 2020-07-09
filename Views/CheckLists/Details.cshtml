@@ -1,0 +1,217 @@
+﻿@model VoltairePower.Models.CheckList
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CheckList</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ac_out)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ac_out)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.energy_prod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.energy_prod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.inspect_panel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.inspect_panel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.shading_issue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.shading_issue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.panel_clean)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.panel_clean)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.inspect_array_mount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.inspect_array_mount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.array_tilt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.array_tilt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.charge_ctrl_settings)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.charge_ctrl_settings)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.battery_test)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.battery_test)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.clean_elect_equipment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.clean_elect_equipment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.monitor_volt_current)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.monitor_volt_current)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mac_out)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mac_out)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Menergy_prod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Menergy_prod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Minspect_panel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Minspect_panel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mshading_issue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mshading_issue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mpanel_clean)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mpanel_clean)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Minspect_array_mount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Minspect_array_mount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Marray_tilt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Marray_tilt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mcharge_ctrl_settings)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mcharge_ctrl_settings)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mbattery_test)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mbattery_test)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mclean_elect_equipment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mclean_elect_equipment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mmonitor_volt_current)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mmonitor_volt_current)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sac_out)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sac_out)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Senergy_prod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Senergy_prod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sinspect_panel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sinspect_panel)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sshading_issue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sshading_issue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Spanel_clean)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Spanel_clean)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sinspect_array_mount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sinspect_array_mount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sarray_tilt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sarray_tilt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Scharge_ctrl_settings)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Scharge_ctrl_settings)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sbattery_test)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sbattery_test)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sclean_elect_equipment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sclean_elect_equipment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Smonitor_volt_current)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Smonitor_volt_current)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
