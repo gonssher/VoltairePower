@@ -111,11 +111,6 @@ namespace VoltairePower.Controllers
             {
                 try
                 {
-/*                    int customerId = Convert.ToInt32(HttpContext.Session.GetInt32("CustomerId"));
-                    Customer customer = (from u in _context.Customers where u.Id == customerId select u).First<Customer>();
-
-                    checkList.Customer = customer;*/
-
                     _context.Update(checkList);
                     await _context.SaveChangesAsync();
                 }
@@ -130,7 +125,7 @@ namespace VoltairePower.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("MainPage", "Home");
             }
             return View(checkList);
         }
