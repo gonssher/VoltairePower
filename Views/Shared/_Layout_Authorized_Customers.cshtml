@@ -27,12 +27,6 @@
                     <a class="navbar-brand left" asp-area="" asp-controller="Home" asp-action="MainPage">
                         <img style="width: 200px; height: auto" src="/images/voltaire_power_logo.png">
                     </a>
-
-                    @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>*@
-                  
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse pull-right">
                         <ul class="navbar-nav flex-grow-1 ">
                             <li class="nav-item dropdown user-menu">
@@ -45,7 +39,6 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="@Url.Action("profile", "Profile")">Profile</a>
-                                    <a class="dropdown-item" href="#">Settings</a>
                                     <a class="dropdown-item" href="@Url.Action("Index", "Home")">Logout</a>
                                 </div>
                             </li>
