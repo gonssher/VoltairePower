@@ -10,8 +10,8 @@ using VoltairePower.Models;
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    [Migration("20200606203928_Change to Time")]
-    partial class ChangetoTime
+    [Migration("20200712210754_Initiate")]
+    partial class Initiate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,123 @@ namespace VoltairePower.Migrations
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("VoltairePower.Models.CheckList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Mac_out")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Marray_tilt")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Mbattery_test")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Mcharge_ctrl_settings")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Mclean_elect_equipment")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Menergy_prod")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Minspect_array_mount")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Minspect_panel")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Mmonitor_volt_current")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Mpanel_clean")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Mshading_issue")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Sac_out")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Sarray_tilt")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Sbattery_test")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Scharge_ctrl_settings")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Sclean_elect_equipment")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Senergy_prod")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Sinspect_array_mount")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Sinspect_panel")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Smonitor_volt_current")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Spanel_clean")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Sshading_issue")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ac_out")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("array_tilt")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("battery_test")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("charge_ctrl_settings")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("clean_elect_equipment")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("energy_prod")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("inspect_array_mount")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("inspect_panel")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("monitor_volt_current")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("panel_clean")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("shading_issue")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerID")
+                        .IsUnique();
+
+                    b.ToTable("CheckLists");
+                });
 
             modelBuilder.Entity("VoltairePower.Models.Customer", b =>
                 {
@@ -245,9 +362,18 @@ namespace VoltairePower.Migrations
                     b.ToTable("WeatherData");
                 });
 
+            modelBuilder.Entity("VoltairePower.Models.CheckList", b =>
+                {
+                    b.HasOne("VoltairePower.Models.Customer", "Customer")
+                        .WithOne("CheckList")
+                        .HasForeignKey("VoltairePower.Models.CheckList", "CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("VoltairePower.Models.Login", b =>
                 {
-                    b.HasOne("VoltairePower.Models.Customer", null)
+                    b.HasOne("VoltairePower.Models.Customer", "Customer")
                         .WithMany("Logins")
                         .HasForeignKey("CustomerId");
                 });

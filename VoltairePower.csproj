@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200712210504_re instating.cs" />
+    <Compile Remove="Migrations\20200712210504_re instating.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Models\mtgymk4q.2ih~" />
   </ItemGroup>
 

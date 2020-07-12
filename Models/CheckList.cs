@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,8 +9,8 @@ namespace VoltairePower.Models
 {
     public class CheckList
     {
-        [System.ComponentModel.DataAnnotations.Key]
         public int Id { get; set; }
+
         [Display(Name = "AC Power Output Measurement & Comparison")]
         public bool ac_out { get; set; }
         [Display(Name = "Energy Production Measurement & Comparison")]
@@ -32,12 +33,6 @@ namespace VoltairePower.Models
         public bool clean_elect_equipment { get; set; }
         [Display(Name = "Monitor System for Voltage and Current")]
         public bool monitor_volt_current { get; set; }
-
-
-
-
-
-
 
         [Display(Name = "AC Power Output Measurement & Comparison")]
         public bool Mac_out { get; set; }
@@ -62,8 +57,6 @@ namespace VoltairePower.Models
         [Display(Name = "Monitor System for Voltage and Current")]
         public bool Mmonitor_volt_current { get; set; }
 
-
-
         [Display(Name = "AC Power Output Measurement & Comparison")]
         public bool Sac_out { get; set; }
         [Display(Name = "Energy Production Measurement & Comparison")]
@@ -86,5 +79,8 @@ namespace VoltairePower.Models
         public bool Sclean_elect_equipment { get; set; }
         [Display(Name = "Monitor System for Voltage and Current")]
         public bool Smonitor_volt_current { get; set; }
+
+        public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
     }
 }

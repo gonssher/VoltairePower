@@ -16,9 +16,14 @@ namespace VoltairePower.Models
         public DbSet<SolarSheetDetail> SolarSheetDetails { get; set; }
         public DbSet<DataGet> LiveDataFeed { get; set; }
         public DbSet<City> WeatherData { get; set; }
-
         public DbSet<CheckList> CheckLists { get; set; }
 
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Customer>()
+                .HasOne<CheckList>(c => c.CheckList)
+                .WithOne(cl => cl.Customer)
+                .HasForeignKey<CheckList>(cl => cl.CustomerID);
+        }
     }
 }

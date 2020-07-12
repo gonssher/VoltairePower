@@ -69,5 +69,7 @@ namespace VoltairePower.Models
         public bool IsCompletedReg { get; set; }
 
         public virtual ICollection<Login> Logins { get; set; }
+
+        public CheckList CheckList { get; set; }
     }
 }

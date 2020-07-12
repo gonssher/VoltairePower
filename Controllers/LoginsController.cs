@@ -70,6 +70,7 @@ namespace VoltairePower.Controllers
                 if (customers.Count == 1)
                 {
                     customer = customers[0];
+                    login.Customer = customer;
 
                     _context.Add(login);
                     await _context.SaveChangesAsync();

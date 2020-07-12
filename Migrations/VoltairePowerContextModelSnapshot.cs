@@ -26,6 +26,9 @@ namespace VoltairePower.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Mac_out")
                         .HasColumnType("bit");
 
@@ -126,6 +129,9 @@ namespace VoltairePower.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerID")
+                        .IsUnique();
 
                     b.ToTable("CheckLists");
                 });
@@ -354,9 +360,18 @@ namespace VoltairePower.Migrations
                     b.ToTable("WeatherData");
                 });
 
+            modelBuilder.Entity("VoltairePower.Models.CheckList", b =>
+                {
+                    b.HasOne("VoltairePower.Models.Customer", "Customer")
+                        .WithOne("CheckList")
+                        .HasForeignKey("VoltairePower.Models.CheckList", "CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("VoltairePower.Models.Login", b =>
                 {
-                    b.HasOne("VoltairePower.Models.Customer", null)
+                    b.HasOne("VoltairePower.Models.Customer", "Customer")
                         .WithMany("Logins")
                         .HasForeignKey("CustomerId");
                 });
