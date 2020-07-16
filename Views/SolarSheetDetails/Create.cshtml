@@ -1,107 +1,176 @@
 ﻿@model VoltairePower.Models.SolarSheetDetail
+
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout_Sor.cshtml";
 }
+<link rel="stylesheet" href="~/css/styleSolar.css" />
 
-<link rel="stylesheet" href="~/css/styleLogn.css" />
-<h4>Solar Panel Registration</h4>
+<h2>Describe Your Solar Plant </h2>
+
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="SolarSize" class="control-label"></label>
-                <input asp-for="SolarSize" class="form-control" />
-                <span asp-validation-for="SolarSize" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Type" class="control-label"></label>
-                @Html.DropDownList("Type", new SelectList(Enum.GetValues(typeof(SolarPlantType))), "--Select Solar Plant Type--",
-                      new { @class = "form-control" })
-                <span asp-validation-for="Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumberofInverters" class="control-label"></label>
-                <input asp-for="NumberofInverters" class="form-control" />
-                <span asp-validation-for="NumberofInverters" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="InverterMakes" class="control-label"></label>
+    <form asp-action="Create"> 
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="SolarSize" class="control-label"></label>
+            <input asp-for="SolarSize" class="form-control" />
+            <span asp-validation-for="SolarSize" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ArrayLocation" class="control-label"></label>
+            @Html.DropDownList("ArrayLocation", new SelectList(Enum.GetValues(typeof(ArrayLoc))), "--Select Array Location Type--",
+                  new { @class = "form-control" })
+            <span asp-validation-for="ArrayLocation" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Type" class="control-label"></label>
+            @Html.DropDownList("Type", new SelectList(Enum.GetValues(typeof(SolarPlantType))), "--Select Solar Plant Type--",
+                  new { @class = "form-control" })
+            <span asp-validation-for="Type" class="text-danger"></span>
+        </div>
 
-                @Html.DropDownList("InverterMakes", new SelectList(Enum.GetValues(typeof(InverterMake))), "--Select Inverter Make--",
-                    new { @class = "form-control" })
-                <span asp-validation-for="InverterMakes" class="text-danger"></span>
+        Please Click Here!
+        <div class="container">
+            <button type="button" class="button" data-toggle="collapse" data-target="#demo">Inverter Specifications</button>
+            <div id="demo" class="collapse">
+                <div class="form-group">
+                    <label asp-for="NumberofInverters" class="control-label"></label>
+                    <input asp-for="NumberofInverters" class="form-control" />
+                    <span asp-validation-for="NumberofInverters" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberOfSolarStrings" class="control-label"></label>
+                    <input asp-for="NumberOfSolarStrings" class="form-control" />
+                    <span asp-validation-for="NumberOfSolarStrings" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="InverterSize" class="control-label"></label>
+                    <input asp-for="InverterSize" class="form-control" />
+                    <span asp-validation-for="InverterSize" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DcInput" class="control-label"></label>
+                    <input asp-for="DcInput" class="form-control" />
+                    <span asp-validation-for="DcInput" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaxDc" class="control-label"></label>
+                    <input asp-for="MaxDc" class="form-control" />
+                    <span asp-validation-for="MaxDc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PeakPwrTv" class="control-label"></label>
+                    <input asp-for="PeakPwrTv" class="form-control" />
+                    <span asp-validation-for="PeakPwrTv" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PeakInvEff" class="control-label"></label>
+                    <input asp-for="PeakInvEff" class="form-control" />
+                    <span asp-validation-for="PeakInvEff" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AcOpVolt" class="control-label"></label>
+                    <input asp-for="AcOpVolt" class="form-control" />
+                    <span asp-validation-for="AcOpVolt" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AcVolt" class="control-label"></label>
+                    <input asp-for="AcVolt" class="form-control" />
+                    <span asp-validation-for="AcVolt" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AcFreqNorminal" class="control-label"></label>
+                    <input asp-for="AcFreqNorminal" class="form-control" />
+                    <span asp-validation-for="AcFreqNorminal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaxContinuousOC" class="control-label"></label>
+                    <input asp-for="MaxContinuousOC" class="form-control" />
+                    <span asp-validation-for="MaxContinuousOC" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PowerFact" class="control-label"></label>
+                    <input asp-for="PowerFact" class="form-control" />
+                    <span asp-validation-for="PowerFact" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="InverterModel" class="control-label"></label>
-                @Html.DropDownList("InverterModel", new SelectList(Enum.GetValues(typeof(InverterModels))), "--Select Inverter Model--",
-                      new { @class = "form-control" })
-                <span asp-validation-for="InverterModel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="InverterSize" class="control-label"></label>
-                <input asp-for="InverterSize" class="form-control" />
-                <span asp-validation-for="InverterSize" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumberOfSolarStrings" class="control-label"></label>
-                <input asp-for="NumberOfSolarStrings" class="form-control" />
-                <span asp-validation-for="NumberOfSolarStrings" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SolarStringsolarConnection" class="control-label"></label>
-                @Html.DropDownList("SolarStringsolarConnection", new SelectList(Enum.GetValues(typeof(SolarStringsolarConnectionType))),
-       "--Select Connection Type--", new { @class = "form-control" })
-                <span asp-validation-for="SolarStringsolarConnection" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SolarStringsolarModel" class="control-label"></label>
-                <input asp-for="SolarStringsolarModel" class="form-control" />
-                <span asp-validation-for="SolarStringsolarModel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NumberOfWatts" class="control-label"></label>
-                <input asp-for="NumberOfWatts" class="form-control" />
-                <span asp-validation-for="NumberOfWatts" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Vmpp" class="control-label"></label>
-                <input asp-for="Vmpp" class="form-control" />
-                <span asp-validation-for="Vmpp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Voc" class="control-label"></label>
-                <input asp-for="Voc" class="form-control" />
-                <span asp-validation-for="Voc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Impp" class="control-label"></label>
-                <input asp-for="Impp" class="form-control" />
-                <span asp-validation-for="Impp" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Isc" class="control-label"></label>
-                <input asp-for="Isc" class="form-control" />
-                <span asp-validation-for="Isc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TemCoeffoicient" class="control-label"></label>
-                <input asp-for="TemCoeffoicient" class="form-control" />
-                <span asp-validation-for="TemCoeffoicient" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+        </div>
+
+        <h2>Solar Module Specifications</h2>
+        <div class="form-group">
+            <label asp-for="SolarModuleMake" class="control-label"></label>
+            <input asp-for="SolarModuleMake" class="form-control" />
+            <span asp-validation-for="SolarModuleMake" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="SolarModulePwr" class="control-label"></label>
+            <input asp-for="SolarModulePwr" class="form-control" />
+            <span asp-validation-for="SolarModulePwr" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ModuleOpenShortCircuit" class="control-label"></label>
+            <input asp-for="ModuleOpenShortCircuit" class="form-control" />
+            <span asp-validation-for="ModuleOpenShortCircuit" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ModuleShortCircuit" class="control-label"></label>
+            <input asp-for="ModuleShortCircuit" class="form-control" />
+            <span asp-validation-for="ModuleShortCircuit" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ModulePerSeries" class="control-label"></label>
+            <input asp-for="ModulePerSeries" class="form-control" />
+            <span asp-validation-for="ModulePerSeries" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ModuleTempCoeff" class="control-label"></label>
+            <input asp-for="ModuleTempCoeff" class="form-control" />
+            <span asp-validation-for="ModuleTempCoeff" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="WireGPerStr" class="control-label"></label>
+            <input asp-for="WireGPerStr" class="form-control" />
+            <span asp-validation-for="WireGPerStr" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TypeofWire" class="control-label"></label>
+            @Html.DropDownList("TypeofWire", new SelectList(Enum.GetValues(typeof(WireGauge))), "--Select Wire Gauge Type--",
+                  new { @class = "form-control" })
+            <span asp-validation-for="TypeofWire" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LengthOfString" class="control-label"></label>
+            <input asp-for="LengthOfString" class="form-control" />
+            <span asp-validation-for="LengthOfString" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+@*</div>*@
 </div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

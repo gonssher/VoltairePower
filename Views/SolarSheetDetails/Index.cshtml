@@ -2,20 +2,22 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_Sor.cshtml";
 }
 
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table id="customers">
+<table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Customer.Id)
+                @Html.DisplayNameFor(model => model.SolarSize)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SolarSize)
+                @Html.DisplayNameFor(model => model.ArrayLocation)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Type)
@@ -24,53 +26,76 @@
                 @Html.DisplayNameFor(model => model.NumberofInverters)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.InverterMakes)
+                @Html.DisplayNameFor(model => model.NumberOfSolarStrings)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.InverterModel)
+                @Html.DisplayNameFor(model => model.SolarModuleMake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SolarModulePwr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleOpenShortCircuit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleShortCircuit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModulePerSeries)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModuleTempCoeff)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.InverterSize)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NumberOfSolarStrings)
+                @Html.DisplayNameFor(model => model.DcInput)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SolarStringsolarConnection)
+                @Html.DisplayNameFor(model => model.MaxDc)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SolarStringsolarModel)
+                @Html.DisplayNameFor(model => model.PeakPwrTv)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NumberOfWatts)
+                @Html.DisplayNameFor(model => model.PeakInvEff)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Vmpp)
+                @Html.DisplayNameFor(model => model.AcOpVolt)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Voc)
+                @Html.DisplayNameFor(model => model.AcVolt)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Impp)
+                @Html.DisplayNameFor(model => model.AcFreqNorminal)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Isc)
+                @Html.DisplayNameFor(model => model.MaxContinuousOC)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TemCoeffoicient)
+                @Html.DisplayNameFor(model => model.PowerFact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WireGPerStr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeofWire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LengthOfString)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
+@foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.SolarSize)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SolarSize)
+                @Html.DisplayFor(modelItem => item.ArrayLocation)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Type)
@@ -79,40 +104,64 @@
                 @Html.DisplayFor(modelItem => item.NumberofInverters)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.InverterMakes)
+                @Html.DisplayFor(modelItem => item.NumberOfSolarStrings)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.InverterModel)
+                @Html.DisplayFor(modelItem => item.SolarModuleMake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SolarModulePwr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleOpenShortCircuit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleShortCircuit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModulePerSeries)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModuleTempCoeff)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.InverterSize)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumberOfSolarStrings)
+                @Html.DisplayFor(modelItem => item.DcInput)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SolarStringsolarConnection)
+                @Html.DisplayFor(modelItem => item.MaxDc)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SolarStringsolarModel)
+                @Html.DisplayFor(modelItem => item.PeakPwrTv)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NumberOfWatts)
+                @Html.DisplayFor(modelItem => item.PeakInvEff)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Vmpp)
+                @Html.DisplayFor(modelItem => item.AcOpVolt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Voc)
+                @Html.DisplayFor(modelItem => item.AcVolt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Impp)
+                @Html.DisplayFor(modelItem => item.AcFreqNorminal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Isc)
+                @Html.DisplayFor(modelItem => item.MaxContinuousOC)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TemCoeffoicient)
+                @Html.DisplayFor(modelItem => item.PowerFact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WireGPerStr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeofWire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LengthOfString)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -120,6 +169,6 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-        }
+}
     </tbody>
 </table>

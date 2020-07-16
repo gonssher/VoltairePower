@@ -50,11 +50,11 @@ namespace VoltairePower.Controllers
         }
 
         // POST: SolarSheetDetails/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SolarSize,Type,NumberofInverters,InverterMakes,InverterModel,InverterSize,NumberOfSolarStrings,SolarStringsolarConnection,SolarStringsolarModel,NumberOfWatts,Vmpp,Voc,Impp,Isc,TemCoeffoicient")] SolarSheetDetail solarSheetDetail)
+        public async Task<IActionResult> Create([Bind("Id,SolarSize,ArrayLocation,Type,NumberofInverters,NumberOfSolarStrings,SolarModuleMake,SolarModulePwr,ModuleOpenShortCircuit,ModuleShortCircuit,ModulePerSeries,ModuleTempCoeff,InverterSize,DcInput,MaxDc,PeakPwrTv,PeakInvEff,AcOpVolt,AcVolt,AcFreqNorminal,MaxContinuousOC,PowerFact,WireGPerStr,TypeofWire,LengthOfString")] SolarSheetDetail solarSheetDetail)
         {
             if (ModelState.IsValid)
             {
@@ -104,11 +104,11 @@ namespace VoltairePower.Controllers
         }
 
         // POST: SolarSheetDetails/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SolarSize,Type,NumberofInverters,InverterMakes,InverterModel,InverterSize,NumberOfSolarStrings,SolarStringsolarConnection,SolarStringsolarModel,NumberOfWatts,Vmpp,Voc,Impp,Isc,TemCoeffoicient")] SolarSheetDetail solarSheetDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SolarSize,ArrayLocation,Type,NumberofInverters,NumberOfSolarStrings,SolarModuleMake,SolarModulePwr,ModuleOpenShortCircuit,ModuleShortCircuit,ModulePerSeries,ModuleTempCoeff,InverterSize,DcInput,MaxDc,PeakPwrTv,PeakInvEff,AcOpVolt,AcVolt,AcFreqNorminal,MaxContinuousOC,PowerFact,WireGPerStr,TypeofWire,LengthOfString")] SolarSheetDetail solarSheetDetail)
         {
             if (id != solarSheetDetail.Id)
             {

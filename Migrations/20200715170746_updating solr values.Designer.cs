@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VoltairePower.Models;
 
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    partial class VoltairePowerContextModelSnapshot : ModelSnapshot
+    [Migration("20200715170746_updating solr values")]
+    partial class updatingsolrvalues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,9 +271,8 @@ namespace VoltairePower.Migrations
                     b.Property<double>("AcOpVolt")
                         .HasColumnType("float");
 
-                    b.Property<string>("AcVolt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AcVolt")
+                        .HasColumnType("int");
 
                     b.Property<int>("ArrayLocation")
                         .HasColumnType("int");
@@ -279,9 +280,8 @@ namespace VoltairePower.Migrations
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("DcInput")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("DcInput")
+                        .HasColumnType("float");
 
                     b.Property<double>("InverterSize")
                         .HasColumnType("float");

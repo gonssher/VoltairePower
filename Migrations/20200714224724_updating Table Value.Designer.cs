@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VoltairePower.Models;
 
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    partial class VoltairePowerContextModelSnapshot : ModelSnapshot
+    [Migration("20200714224724_updating Table Value")]
+    partial class updatingTableValue
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,9 +271,8 @@ namespace VoltairePower.Migrations
                     b.Property<double>("AcOpVolt")
                         .HasColumnType("float");
 
-                    b.Property<string>("AcVolt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AcVolt")
+                        .HasColumnType("int");
 
                     b.Property<int>("ArrayLocation")
                         .HasColumnType("int");
@@ -279,7 +280,14 @@ namespace VoltairePower.Migrations
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<string>("DcInput")
+                    b.Property<double>("DcInput")
+                        .HasColumnType("float");
+
+                    b.Property<string>("InverterMakes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InverterModel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -321,10 +329,6 @@ namespace VoltairePower.Migrations
 
                     b.Property<double>("PowerFact")
                         .HasColumnType("float");
-
-                    b.Property<string>("SolarModuleMake")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SolarModulePwr")
                         .IsRequired()

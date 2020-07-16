@@ -10,66 +10,117 @@ namespace VoltairePower.Models
     {
         [Key]
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Please enter the Solar Size")]
-        [Display(Name = "Soalr Size", Prompt = "Solar Size")]
+/// <summary>
+/// /////////////////////////////////////////////////////////////////////////////////
+/// </summary>
+        [Required(ErrorMessage = "Please enter the Solar Array Size")]
+        [Display(Name = "Soalr Array Size (KW)", Prompt = "Solar Array Size")]
         public int SolarSize { get; set; }
+
+
+        [Required(ErrorMessage = "Please select the Array Location")]
+        [Display(Name = "Select Array Location", Prompt = "Select Array Location")]
+        public ArrayLoc ArrayLocation { get; set; } 
 
         [Required(ErrorMessage = "Please enter the Solar Plant Type")]
         [Display(Name = "Solar Plant Type", Prompt = "Solar Plant Type")]
         public SolarPlantType Type { get; set; }
-
+/// <summary>
+/// /////////////////////////////////////////////////////////////////////////////////
+/// </summary>
         [Required(ErrorMessage = "Please enter the Number of Inverters")]
         [Display(Name = "Number Of Inverters", Prompt = "Number Of Inverters")]
         public int NumberofInverters { get; set; }
 
-        [Required(ErrorMessage = "Please select the Inverter Make")]
-        [Display(Name = "Inverter Make", Prompt = "Inverter Make")]
-        public InverterMake InverterMakes { get; set; }
-
-        [Required(ErrorMessage = "Please Select the Inverter Model")]
-        [Display(Name = "Inverter Model", Prompt = "Inverter Model")]
-        public InverterModels InverterModel { get; set; }
-
-        [Required(ErrorMessage = "Please enter the inverter Size")]
-        [Display(Name = "Inverter Size", Prompt = "Inverter Size")]
-        public int InverterSize { get; set; }
-
-        [Required(ErrorMessage = "Please enter the Number of Solar String")]
-        [Display(Name = "Number of Solar String", Prompt = "Number of Solar String")]
+        [Required(ErrorMessage = "Please enter the Number of String Per Inverter")]
+        [Display(Name = "Number of Strings Per Inverter", Prompt = "Number of String")]
         public int NumberOfSolarStrings { get; set; }
 
-        [Required(ErrorMessage = "Please Select the Solar String Connection")]
-        [Display(Name = "Solar String Connection", Prompt = "Solar String Connection")]
-        public SolarStringsolarConnectionType SolarStringsolarConnection { get; set; }
+        [Required(ErrorMessage = "Please select the Solar Module Make")]
+        [Display(Name = "Solar Module Make", Prompt = "Solar Module Make")]
+        public string SolarModuleMake { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Solar String Model")]
-        [Display(Name = "Solar String Model", Prompt = "Solar String Model")]
-        public string SolarStringsolarModel { get; set; }
+        [Required(ErrorMessage = "Please input the Solar Module Power (W)")]
+        [Display(Name = "Solar Module Power (W)", Prompt = "Solar Module Power (W)")]
+        public string SolarModulePwr { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Number of Watts")]
-        [Display(Name = "Number of Watts", Prompt = "Number of Watts")]
-        public int NumberOfWatts { get; set; }
+        [Required(ErrorMessage = "Please enter the Module Open Circuit Voltage (Voc)")]
+        [Display(Name = "Module Open Circuit Voltage (Voc)", Prompt = "Module Open Circuit Voltage (Voc)")]
+        public double ModuleOpenShortCircuit { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Voltage, maximum powerpoint")]
-        [Display(Name = "Maximum PowerPoint", Prompt = "Maximum PowerPoint")]
-        public int Vmpp { get; set; }
+        [Required(ErrorMessage = "Please enter the Module Short Circuit Current (Isc)")]
+        [Display(Name = "Module Short Circuit Current (Isc)", Prompt = "Module Short Circuit Current (Isc)")]
+        public double ModuleShortCircuit { get; set; }
 
-        [Required(ErrorMessage = "Please enter Voltage, Open Circuit")]
-        [Display(Name = "Voltage", Prompt = "Voltage")]
-        public int Voc { get; set; }
+        [Required(ErrorMessage = "Please enter the Number of Modules per Series String")]
+        [Display(Name = "Number of Modules per Series String", Prompt = "Number of Modules per Series String")]
+        public double ModulePerSeries { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Current, maximum powerpoint")]
-        [Display(Name = "Current", Prompt = "Current")]
-        public int Impp { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Short Circuit")]
-        [Display(Name = "Short Circuit", Prompt = "Short Circuit")]
-        public int Isc { get; set; }
+        [Required(ErrorMessage = "Please enter theModule Temperature Coefficient")]
+        [Display(Name = "Module Temperature Coefficient", Prompt = "Module Temperature Coefficient")]
+        public double ModuleTempCoeff { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Temperature Coefficient")]
-        [Display(Name = "Temperature Coefficient", Prompt = "Temperature Coefficient")]
-        public int TemCoeffoicient { get; set; }
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        [Required(ErrorMessage = "Please enter the inverter Size (KW)")]
+        [Display(Name = "Inverter Size (KW)", Prompt = "Inverter Size")]
+        public double InverterSize { get; set; }
+
+        [Required(ErrorMessage = "Please enter the DC Input Voltage")]
+        [Display(Name = "DC Input Voltage Range", Prompt = "DC Input Voltage Range")]
+        public string DcInput { get; set; }
+
+        [Required(ErrorMessage = "Please enter Max Dc Current")]
+        [Display(Name = "Max Dc Current", Prompt = "Max Dc Current")]
+        public double MaxDc { get; set; }
+
+        [Required(ErrorMessage = "Please enter the Peak Power Tracking Voltage")]
+        [Display(Name = "Peak Power Tracking Voltage", Prompt = "Peak Power Tracking Voltage")]
+        public double PeakPwrTv { get; set; }
+
+        [Required(ErrorMessage = "Please enter Peak Inverter Efficiency")]
+        [Display(Name = "Peak Inverter Efficiency", Prompt = "Peak Inverter Efficiency")]
+        public double PeakInvEff { get; set; }
+
+        [Required(ErrorMessage = "Please enter the AC Output Voltage (nominal)")]
+        [Display(Name = "AC Output Voltage (nominal)", Prompt = "AC Output Voltage (nominal)")]
+        public double AcOpVolt { get; set; }
+
+        [Required(ErrorMessage = "Please enter the AC Voltage")]
+        [Display(Name = "AC Voltage Range", Prompt = "AC Voltage ")]
+        public string AcVolt { get; set; }
+
+        [Required(ErrorMessage = "Please enter the AC Frequency (nominal)")]
+        [Display(Name = "AC Frequency (nominal)", Prompt = "AC Frequency (nominal)")]
+        public double AcFreqNorminal { get; set; }
+
+        [Required(ErrorMessage = "Please enter the Max Continuous Output Current")]
+        [Display(Name = "Max Continuous Output Current", Prompt = "Max Continuous Output Current")]
+        public double MaxContinuousOC { get; set; }
+
+        [Required(ErrorMessage = "Please enter the Power Factor ")]
+        [Display(Name = "Power Factor", Prompt = "Power Factor")]
+        public double PowerFact { get; set; }
+/// <summary>
+/// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// </summary>
+
+        [Required(ErrorMessage = "Please enter the Wire Gauge per String")]
+        [Display(Name = "Wire Gauge per String", Prompt = "Wire Gauge per String")]
+        public int WireGPerStr { get; set; }
+
+
+        [Required(ErrorMessage = "Please enter the Type of Wire")]
+        [Display(Name = "Type of Wire", Prompt = "Type of Wire")]
+        public WireGauge TypeofWire { get; set; }
+
+
+        [Required(ErrorMessage = "Please enter the Total Length of string wiring (one way) ")]
+        [Display(Name = "Total Length of string wiring One way (Feet)", Prompt = "Total Length of string wiring (one way)")]
+        public double LengthOfString { get; set; }
+
         public virtual Customer Customer { get; set; }
     }
 
@@ -84,37 +135,19 @@ namespace VoltairePower.Models
         Stand
     }
 
-
-    public enum InverterMake
-    {
-        Fronius,
-        Sungrow,
-        Tigo
+    public enum ArrayLoc
+    { 
+        Latitude,
+        Longitude
     }
 
-    public enum InverterModels
+    public enum WireGauge
     {
-        [Display(Name = "Sukam shiny series")]
-        Sukam,
-        [Display(Name = "Microtek UPS SEBz series")]
-        Microtek,
-        [Display(Name = "Exide Home UPS")]
-        Exide,
-        [Display(Name = "APC Home UPS")]
-        APC
+        PVwire,
+        USE2
 
     }
 
-
-    public enum SolarStringsolarConnectionType
-    {
-        [Display(Name = "Parallel Connection")]
-        parallel,
-        [Display(Name = "Series Connection")]
-        series
-
-
-    }
 
 }
 
