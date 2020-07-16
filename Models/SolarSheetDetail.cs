@@ -97,12 +97,12 @@ namespace VoltairePower.Models
         public string AcVolt { get; set; }
 
         [Required(ErrorMessage = "Please enter the AC Frequency (nominal)")]
-        [Display(Name = "AC Frequency (nominal)", Prompt = "AC Frequency (nominal)")]
-        public double AcFreqNorminal { get; set; }
+        [Display(Name = "AC Frequency (nominal) Range", Prompt = "AC Frequency (nominal)")]
+        public string AcFreqNorminal { get; set; }
 
         [Required(ErrorMessage = "Please enter the Max Continuous Output Current")]
         [Display(Name = "Max Continuous Output Current", Prompt = "Max Continuous Output Current")]
-        public double MaxContinuousOC { get; set; }
+        public string MaxContinuousOC { get; set; }
 
         [Required(ErrorMessage = "Please enter the Power Factor ")]
         [Display(Name = "Power Factor", Prompt = "Power Factor")]
