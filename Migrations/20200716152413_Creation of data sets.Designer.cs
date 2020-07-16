@@ -10,8 +10,8 @@ using VoltairePower.Models;
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    [Migration("20200714224724_updating Table Value")]
-    partial class updatingTableValue
+    [Migration("20200716152413_Creation of data sets")]
+    partial class Creationofdatasets
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -197,37 +197,35 @@ namespace VoltairePower.Migrations
 
             modelBuilder.Entity("VoltairePower.Models.DataGet", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<double>("Id")
+                        .HasColumnType("float");
 
-                    b.Property<int>("Active_Energy_Delivered_Received_kWh")
-                        .HasColumnType("int");
+                    b.Property<float>("Active_Energy_Delivered_Received_kWh")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Active_Power_Kw")
-                        .HasColumnType("int");
+                    b.Property<float>("Active_Power_Kw")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Current_Phase_Average_Mean_A")
-                        .HasColumnType("int");
+                    b.Property<float>("Current_Phase_Average_Mean_A")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Diffuse_Horizontal_Radiation_WM2")
-                        .HasColumnType("int");
+                    b.Property<float>("Diffuse_Horizontal_Radiation_WM2")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Global_Horizontal_Radiation_WM2")
-                        .HasColumnType("int");
+                    b.Property<float>("Global_Horizontal_Radiation_WM2")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Timestamp")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("Weather_Relative_Humidity_Percent")
-                        .HasColumnType("int");
+                    b.Property<float>("Weather_Relative_Humidity_Percent")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Weather_Temperature_Celsius")
-                        .HasColumnType("int");
+                    b.Property<float>("Weather_Temperature_Celsius")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Wind_Direction_Degree")
-                        .HasColumnType("int");
+                    b.Property<float>("Wind_Direction_Degree")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -271,23 +269,22 @@ namespace VoltairePower.Migrations
                     b.Property<double>("AcOpVolt")
                         .HasColumnType("float");
 
-                    b.Property<int>("AcVolt")
-                        .HasColumnType("int");
+                    b.Property<string>("AcVolt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ArrayLocation")
-                        .HasColumnType("int");
+                    b.Property<string>("ArrayLocation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ArrayLocationLong")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<double>("DcInput")
-                        .HasColumnType("float");
-
-                    b.Property<string>("InverterMakes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("InverterModel")
+                    b.Property<string>("DcInput")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -329,6 +326,10 @@ namespace VoltairePower.Migrations
 
                     b.Property<double>("PowerFact")
                         .HasColumnType("float");
+
+                    b.Property<string>("SolarModuleMake")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SolarModulePwr")
                         .IsRequired()

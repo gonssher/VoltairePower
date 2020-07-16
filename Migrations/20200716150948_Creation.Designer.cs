@@ -10,8 +10,8 @@ using VoltairePower.Models;
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    [Migration("20200715214412_updates to solrsheet")]
-    partial class updatestosolrsheet
+    [Migration("20200716150948_Creation")]
+    partial class Creation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -197,10 +197,8 @@ namespace VoltairePower.Migrations
 
             modelBuilder.Entity("VoltairePower.Models.DataGet", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<double>("Id")
+                        .HasColumnType("float");
 
                     b.Property<int>("Active_Energy_Delivered_Received_kWh")
                         .HasColumnType("int");
@@ -217,8 +215,8 @@ namespace VoltairePower.Migrations
                     b.Property<int>("Global_Horizontal_Radiation_WM2")
                         .HasColumnType("int");
 
-                    b.Property<int>("Timestamp")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Weather_Relative_Humidity_Percent")
                         .HasColumnType("int");
@@ -275,8 +273,13 @@ namespace VoltairePower.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ArrayLocation")
-                        .HasColumnType("int");
+                    b.Property<string>("ArrayLocation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ArrayLocationLong")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");

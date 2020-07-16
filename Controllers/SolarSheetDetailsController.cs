@@ -54,7 +54,7 @@ namespace VoltairePower.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SolarSize,ArrayLocation,Type,NumberofInverters,NumberOfSolarStrings,SolarModuleMake,SolarModulePwr,ModuleOpenShortCircuit,ModuleShortCircuit,ModulePerSeries,ModuleTempCoeff,InverterSize,DcInput,MaxDc,PeakPwrTv,PeakInvEff,AcOpVolt,AcVolt,AcFreqNorminal,MaxContinuousOC,PowerFact,WireGPerStr,TypeofWire,LengthOfString")] SolarSheetDetail solarSheetDetail)
+        public async Task<IActionResult> Create([Bind("Id,SolarSize,ArrayLocation,ArrayLocationLong,Type,NumberofInverters,NumberOfSolarStrings,SolarModuleMake,SolarModulePwr,ModuleOpenShortCircuit,ModuleShortCircuit,ModulePerSeries,ModuleTempCoeff,InverterSize,DcInput,MaxDc,PeakPwrTv,PeakInvEff,AcOpVolt,AcVolt,AcFreqNorminal,MaxContinuousOC,PowerFact,WireGPerStr,TypeofWire,LengthOfString")] SolarSheetDetail solarSheetDetail)
         {
             if (ModelState.IsValid)
             {

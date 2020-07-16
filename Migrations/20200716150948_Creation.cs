@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VoltairePower.Migrations
 {
-    public partial class Initiate : Migration
+    public partial class Creation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,9 +34,8 @@ namespace VoltairePower.Migrations
                 name: "LiveDataFeed",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Timestamp = table.Column<int>(nullable: false),
+                    Id = table.Column<double>(nullable: false),
+                    Timestamp = table.Column<DateTime>(nullable: false),
                     Current_Phase_Average_Mean_A = table.Column<int>(nullable: false),
                     Active_Energy_Delivered_Received_kWh = table.Column<int>(nullable: false),
                     Active_Power_Kw = table.Column<int>(nullable: false),
@@ -152,20 +151,30 @@ namespace VoltairePower.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SolarSize = table.Column<int>(nullable: false),
+                    ArrayLocation = table.Column<string>(nullable: false),
+                    ArrayLocationLong = table.Column<string>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     NumberofInverters = table.Column<int>(nullable: false),
-                    InverterMakes = table.Column<int>(nullable: false),
-                    InverterModel = table.Column<int>(nullable: false),
-                    InverterSize = table.Column<int>(nullable: false),
                     NumberOfSolarStrings = table.Column<int>(nullable: false),
-                    SolarStringsolarConnection = table.Column<int>(nullable: false),
-                    SolarStringsolarModel = table.Column<string>(nullable: false),
-                    NumberOfWatts = table.Column<int>(nullable: false),
-                    Vmpp = table.Column<int>(nullable: false),
-                    Voc = table.Column<int>(nullable: false),
-                    Impp = table.Column<int>(nullable: false),
-                    Isc = table.Column<int>(nullable: false),
-                    TemCoeffoicient = table.Column<int>(nullable: false),
+                    SolarModuleMake = table.Column<string>(nullable: false),
+                    SolarModulePwr = table.Column<string>(nullable: false),
+                    ModuleOpenShortCircuit = table.Column<double>(nullable: false),
+                    ModuleShortCircuit = table.Column<double>(nullable: false),
+                    ModulePerSeries = table.Column<double>(nullable: false),
+                    ModuleTempCoeff = table.Column<double>(nullable: false),
+                    InverterSize = table.Column<double>(nullable: false),
+                    DcInput = table.Column<string>(nullable: false),
+                    MaxDc = table.Column<double>(nullable: false),
+                    PeakPwrTv = table.Column<double>(nullable: false),
+                    PeakInvEff = table.Column<double>(nullable: false),
+                    AcOpVolt = table.Column<double>(nullable: false),
+                    AcVolt = table.Column<string>(nullable: false),
+                    AcFreqNorminal = table.Column<double>(nullable: false),
+                    MaxContinuousOC = table.Column<double>(nullable: false),
+                    PowerFact = table.Column<double>(nullable: false),
+                    WireGPerStr = table.Column<int>(nullable: false),
+                    TypeofWire = table.Column<int>(nullable: false),
+                    LengthOfString = table.Column<double>(nullable: false),
                     CustomerId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

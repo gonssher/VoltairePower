@@ -18,9 +18,13 @@ namespace VoltairePower.Models
         public int SolarSize { get; set; }
 
 
-        [Required(ErrorMessage = "Please select the Array Location")]
-        [Display(Name = "Select Array Location", Prompt = "Select Array Location")]
-        public ArrayLoc ArrayLocation { get; set; } 
+        [Required(ErrorMessage = "Please input the Latitude Location")]
+        [Display(Name = "Latitude Location", Prompt = "Select Array Location")]
+        public string ArrayLocation { get; set; }
+
+        [Required(ErrorMessage = "Please input the Longitude ")]
+        [Display(Name = "Longitude Location", Prompt = "Select Array Location")]
+        public string ArrayLocationLong { get; set; }
 
         [Required(ErrorMessage = "Please enter the Solar Plant Type")]
         [Display(Name = "Solar Plant Type", Prompt = "Solar Plant Type")]
@@ -132,7 +136,7 @@ namespace VoltairePower.Models
         [Display(Name = "Community Solar")]
         Community,
         [Display(Name = "Stand Alone")]
-        Stand
+        StandAlone
     }
 
     public enum ArrayLoc
