@@ -26,8 +26,7 @@ namespace VoltairePower
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<VoltairePowerContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("VoltairePowerContext"))
+            services.AddDbContext<VoltairePowerContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("VoltairePowerContext"))
             );
 
             //In-Memory

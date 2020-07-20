@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VoltairePower.Models;
 
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    partial class VoltairePowerContextModelSnapshot : ModelSnapshot
+    [Migration("20200720011539_updatg")]
+    partial class updatg
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,8 +200,8 @@ namespace VoltairePower.Migrations
                     b.Property<double>("Id")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Timestamp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("TranslatedVoltage")
                         .HasColumnType("float");

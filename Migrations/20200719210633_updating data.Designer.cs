@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VoltairePower.Models;
 
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    partial class VoltairePowerContextModelSnapshot : ModelSnapshot
+    [Migration("20200719210633_updating data")]
+    partial class updatingdata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,25 +193,6 @@ namespace VoltairePower.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("VoltairePower.Models.Data_Layer.PopulatingLineGraph", b =>
-                {
-                    b.Property<double>("Id")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("TranslatedVoltage")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Voltage")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LineChartData");
                 });
 
             modelBuilder.Entity("VoltairePower.Models.LiveFeedData", b =>

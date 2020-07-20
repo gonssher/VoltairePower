@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace VoltairePower.Models
 {
-    public class DataGet
+    public class LiveFeedData
     {
         public double Id { get; set; }
         public DateTime Timestamp { get; set; }
