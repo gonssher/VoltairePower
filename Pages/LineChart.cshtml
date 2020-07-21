@@ -1,0 +1,54 @@
+﻿@page
+@model ChartApp.Pages.LineChartModel
+@{
+    ViewData["Title"] = "Line Chart";
+
+    string chartTitle = "Temperature Data";
+    string chartUnit= "Celsius";
+    Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Line Chart</h1>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Time', 'Voltage','TranslatedVoltage'],
+
+            @foreach (var data in Model.chartDataList) {
+
+                 <text>['@data.TimeStamp', @data.TranslatedVoltage ,@data.Voltage],</text>
+
+            }
+
+             ]);
+
+        var options = {
+            title: '@chartTitle',
+            curveType: 'function',
+            pointsVisible: true,
+            lineWidth: 3,
+            legend: 'none',
+            hAxis: {title: 'Time'},
+            vAxis: {title: '@chartUnit'},
+            width: '100%',
+            height: '100%',
+            chartArea: {width: '85%', height: '75%'}
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
+        chart.draw(data, options);
+    }
+</script>
+
+<div class="container-fluid lead">
+
+    <div id="line_chart" style="width: 800px; height: 600px"></div>
+
+</div>

@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace VoltairePower.Controllers
 {
+   
     public class ProfileController : Controller
     {
         private readonly VoltairePowerContext _context;
