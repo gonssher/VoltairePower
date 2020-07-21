@@ -31,7 +31,7 @@ namespace VoltairePower.Models
                     connection.Open();
                     StringBuilder sb = new StringBuilder();
 
-                    sb.Append("SELECT Id, TimeStamp, TranslatedVoltage, Voltage FROM LineChart");
+                    sb.Append("SELECT Id,  FORMAT(Timestamp, 'MM.dd HH:mm') AS Timestamp , TranslatedVoltage, Voltage FROM LineChart");
                     String sql = sb.ToString();
 
 

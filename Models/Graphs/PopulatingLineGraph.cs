@@ -11,7 +11,7 @@ namespace VoltairePower.Models.Data_Layer
     {
         [Key]
         public double Id { get; set; }
-        public string Timestamp { get; set; }
+        public DateTime Timestamp { get; set; }
         public double Voltage { get; set; }
 
         public double TranslatedVoltage { get; set; }
