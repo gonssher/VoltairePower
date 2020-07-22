@@ -31,7 +31,6 @@
                         <ul class="navbar-nav flex-grow-1 ">
                             <li class="nav-item dropdown user-menu">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    @*<img src="http://via.placeholder.com/160x160" class="user-image" alt="User Image">*@
                                     <span class="hidden-xs">
                                         <br>
                                         @Context.Session.GetString("CustomerName")
@@ -55,14 +54,6 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                @*<div class="user-panel">*@
-                    @*<div class="pull-left image">
-                        <a href="#">
-                            <i class="fa fa-circle text-success"></i>
-                            @ViewData["temp"]
-                        </a>
-                    </div>*@
-                @*</div>*@
             </div>
             <ul class="list-unstyled components">
                 <img style="width: 200px; height: auto" src="/images/solarPanelTep.png">
@@ -73,7 +64,6 @@
                         <li><a href="#"><i class="fa fa-solar-panel"></i>System View</a></li>
                         <li><a href="../../LineChart"><i class="fa fa-chart-line"></i>Basic Charts</a></li>
                         <li><a href="#"><i class="fa fa-chart-bar"></i>Advanced Charts</a></li>
-                        @*<li><a href="./LineChart">Line Chart</a></li>*@
                         <li><a href="@Url.Action("Create", "Checklists")"><i class="fa fa-info"></i>Checklist</a></li>
                         <li><a href="#"><i class="fa fa-award"></i>Premium</a></li>
                     </ul>
