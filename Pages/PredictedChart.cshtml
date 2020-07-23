@@ -19,7 +19,7 @@
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Time', 'ExtraplatedCurrent', 'Tsdas'],
+            ['Time', 'Predicted Current', 'Extrapolated Current'],
 
             @foreach (var data in Model.chartDataList) {
 
@@ -37,9 +37,9 @@
             legend: 'right',
             hAxis: { title: 'Time'},
             vAxis: { title: '@chartUnit'},
-            width: '100%',
+            width: '80%',
             height: '100%',
-            chartArea: {width: '68%', height: '75%'}
+            chartArea: {width: '60%', height: '65%'}
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
