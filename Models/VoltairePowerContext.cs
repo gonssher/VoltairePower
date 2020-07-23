@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using VoltairePower.Models.Data_Layer;
 using VoltairePower.Models.Weather;
 using VoltairePower.Models;
+using VoltairePower.Models.Graph_Tables;
 
 namespace VoltairePower.Models
 {
@@ -24,6 +25,9 @@ namespace VoltairePower.Models
         public DbSet<City> WeatherData { get; set; }
         public DbSet<CheckList> CheckLists { get; set; }
         public DbSet<PopulatingLineGraph> LineChart { get; set;}
+
+        public DbSet<PredictedActual> PredictedData { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>()

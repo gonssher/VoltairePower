@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
-using VoltairePower.Models;
+using System.Threading.Tasks;
 
-namespace VoltairePower.Models
+namespace VoltairePower.Models.Graphs
 {
-    public class ChartData
+    public class PredictedAnalysis
     {
+
         public double Id { get; set; }
-        public string TimeStamp { get; set; }
-        public double Voltage { get; set; }
+        public string Timestamp { get; set; }
+        public double PredictedCurrent { get; set; }
+        public double ExtraplatedCurrent { get; set; }
 
-        public double TranslatedVoltage { get; set; }
-
-        public List<ChartData> GetChartData(string connectionString)
+        public List<PredictedAnalysis> GetChartData(string connectionString)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
@@ -23,7 +25,7 @@ namespace VoltairePower.Models
             builder.Password = "shannonnA4";
             builder.InitialCatalog = "VoltairePowers";
 
-            List<ChartData> chartDataList = new List<ChartData>();
+            List<PredictedAnalysis> chartDataList = new List<PredictedAnalysis>();
             try
             {
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
@@ -31,11 +33,11 @@ namespace VoltairePower.Models
                     connection.Open();
                     StringBuilder sb = new StringBuilder();
 
-                    sb.Append("SELECT Id, FORMAT(Timestamp, 'MM.dd HH:mm') AS Timestamp, TranslatedVoltage, Voltage FROM LineChart");
-                
+                    sb.Append("SELECT  ExtraplatedCurrent,FORMAT(Timestamp, 'MM.dd HH:mm') AS Timestamp , PredictedCurrent FROM PredictedData");
+
                     String sql = sb.ToString();
 
-                    //SELECT Id, FORMAT(Timestamp, 'MM.dd HH:mm') AS Timestamp, TranslatedVoltage, Voltage FROM LineChart
+
 
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
@@ -46,12 +48,13 @@ namespace VoltairePower.Models
                             {
 
 
-                                ChartData chartData = new ChartData();
+                                PredictedAnalysis chartData = new PredictedAnalysis();
 
-                                chartData.Id = Convert.ToInt32(dr["Id"]);
-                                chartData.TimeStamp = dr["TimeStamp"].ToString();
-                                chartData.TranslatedVoltage = Convert.ToDouble(dr["TranslatedVoltage"]);
-                                chartData.Voltage = Convert.ToDouble(dr["Voltage"]);
+//                                chartData.Id = Convert.ToInt32(dr["Id"]);
+                                chartData.ExtraplatedCurrent = Convert.ToDouble(dr["ExtraplatedCurrent"]);
+                                chartData.Timestamp = dr["TimeStamp"].ToString();
+                                chartData.PredictedCurrent = Convert.ToDouble(dr["PredictedCurrent"]);
+                          
 
                                 chartDataList.Add(chartData);
                             }
@@ -60,14 +63,14 @@ namespace VoltairePower.Models
 
                 }
             }
-
             catch (SqlException e)
             { Console.WriteLine(e.ToString()); }
 
             return chartDataList;
 
-    
+
         }
+
 
 
 

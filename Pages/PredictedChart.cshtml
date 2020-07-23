@@ -1,0 +1,54 @@
+﻿@page
+@model ChartApp.Pages.PredictedChartModel
+@{
+    ViewData["Title"] = "Current Predicted Vs Actual";
+
+    string chartUnit= "Current";
+
+    Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
+}
+
+<div class="text-center">
+    <h4 class="display-4">Current Predicted Vs Actual</h4>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Time', 'ExtraplatedCurrent', 'Tsdas'],
+
+            @foreach (var data in Model.chartDataList) {
+
+
+                <text>['@data.Timestamp',@data.PredictedCurrent ,@data.ExtraplatedCurrent],</text>
+
+            }
+
+            ]);
+
+        var options = {
+            curveType: 'function',
+            pointsVisible: true,
+            lineWidth: 3,
+            legend: 'right',
+            hAxis: { title: 'Time'},
+            vAxis: { title: '@chartUnit'},
+            width: '100%',
+            height: '100%',
+            chartArea: {width: '68%', height: '75%'}
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
+        chart.draw(data, options);
+    }
+</script>
+
+<div class="container-fluid lead">
+
+    <div id="line_chart" style="width: 800px; height: 600px"></div>
+
+</div>
