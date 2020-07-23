@@ -74,7 +74,7 @@ namespace VoltairePower.Controllers
 
                 _context.Add(checkList);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("MainPage", "Home");
+                return RedirectToAction("SearchCity", "Weather");
             }
             return View(checkList);
         }
@@ -125,7 +125,7 @@ namespace VoltairePower.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("MainPage", "Home");
+                return RedirectToAction("SearchCity", "Weather");
             }
             return View(checkList);
         }
