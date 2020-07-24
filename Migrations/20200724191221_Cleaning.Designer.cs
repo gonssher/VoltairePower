@@ -10,8 +10,8 @@ using VoltairePower.Models;
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    [Migration("20200724040656_updating new db detai")]
-    partial class updatingnewdbdetai
+    [Migration("20200724191221_Cleaning")]
+    partial class Cleaning
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,25 +20,6 @@ namespace VoltairePower.Migrations
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("VoltairePower.Models.ChartData", b =>
-                {
-                    b.Property<double>("Id")
-                        .HasColumnType("float");
-
-                    b.Property<string>("TimeStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("TranslatedVoltage")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Voltage")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ChartData");
-                });
 
             modelBuilder.Entity("VoltairePower.Models.CheckList", b =>
                 {

@@ -3,24 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VoltairePower.Migrations
 {
-    public partial class updatingnewdbdetai : Migration
+    public partial class Cleaning : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "ChartData",
-                columns: table => new
-                {
-                    Id = table.Column<double>(nullable: false),
-                    TimeStamp = table.Column<string>(nullable: true),
-                    Voltage = table.Column<double>(nullable: false),
-                    TranslatedVoltage = table.Column<double>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChartData", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Customers",
                 columns: table => new
@@ -250,9 +236,6 @@ namespace VoltairePower.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "ChartData");
-
             migrationBuilder.DropTable(
                 name: "CheckLists");
 

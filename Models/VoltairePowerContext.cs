@@ -43,6 +43,6 @@ namespace VoltairePower.Models
 
 
 
-        public DbSet<VoltairePower.Models.ChartData> ChartData { get; set; }
+        //public DbSet<VoltairePower.Models.ChartData> ChartData { get; set; }
     }
 }

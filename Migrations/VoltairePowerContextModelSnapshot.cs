@@ -19,25 +19,6 @@ namespace VoltairePower.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("VoltairePower.Models.ChartData", b =>
-                {
-                    b.Property<double>("Id")
-                        .HasColumnType("float");
-
-                    b.Property<string>("TimeStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("TranslatedVoltage")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Voltage")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ChartData");
-                });
-
             modelBuilder.Entity("VoltairePower.Models.CheckList", b =>
                 {
                     b.Property<int>("Id")
