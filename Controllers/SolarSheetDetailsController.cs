@@ -46,6 +46,16 @@ namespace VoltairePower.Controllers
         // GET: SolarSheetDetails/Create
         public IActionResult Create()
         {
+            int customerId = Convert.ToInt32(HttpContext.Session.GetInt32("CustomerId"));
+            Customer customer = (from u in _context.Customers where u.Id == customerId select u).First<Customer>();
+
+           SolarSheetDetail solarSheetDetail = (from l in _context.SolarSheetDetails where l.CustomerID == customerId select l).FirstOrDefault<SolarSheetDetail>();
+
+            if (solarSheetDetail != null)
+            {
+                return RedirectToAction("Edit", new { @id = solarSheetDetail.Id });
+            }
+
             return View();
         }
 
@@ -108,7 +118,7 @@ namespace VoltairePower.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SolarSize,ArrayLocation,Type,NumberofInverters,NumberOfSolarStrings,SolarModuleMake,SolarModulePwr,ModuleOpenShortCircuit,ModuleShortCircuit,ModulePerSeries,ModuleTempCoeff,InverterSize,DcInput,MaxDc,PeakPwrTv,PeakInvEff,AcOpVolt,AcVolt,AcFreqNorminal,MaxContinuousOC,PowerFact,WireGPerStr,TypeofWire,LengthOfString")] SolarSheetDetail solarSheetDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SolarSize,ArrayLocation,ArrayLocationLong,Type,NumberofInverters,NumberOfSolarStrings,SolarModuleMake,SolarModulePwr,ModuleOpenShortCircuit,ModuleShortCircuit,ModulePerSeries,ModuleTempCoeff,InverterSize,DcInput,MaxDc,PeakPwrTv,PeakInvEff,AcOpVolt,AcVolt,AcFreqNorminal,MaxContinuousOC,PowerFact,WireGPerStr,TypeofWire,LengthOfString,CustomerID")] SolarSheetDetail solarSheetDetail)
         {
             if (id != solarSheetDetail.Id)
             {
@@ -133,7 +143,7 @@ namespace VoltairePower.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("SearchCity", "Weather");
             }
             return View(solarSheetDetail);
         }

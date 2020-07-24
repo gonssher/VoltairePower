@@ -3,10 +3,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VoltairePower.Migrations
 {
-    public partial class Creation : Migration
+    public partial class updatingnewdbdetai : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ChartData",
+                columns: table => new
+                {
+                    Id = table.Column<double>(nullable: false),
+                    TimeStamp = table.Column<string>(nullable: true),
+                    Voltage = table.Column<double>(nullable: false),
+                    TranslatedVoltage = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChartData", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Customers",
                 columns: table => new
@@ -31,23 +45,51 @@ namespace VoltairePower.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LineChart",
+                columns: table => new
+                {
+                    Id = table.Column<double>(nullable: false),
+                    Timestamp = table.Column<DateTime>(nullable: false),
+                    Voltage = table.Column<double>(nullable: false),
+                    TranslatedVoltage = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LineChart", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LiveDataFeed",
                 columns: table => new
                 {
                     Id = table.Column<double>(nullable: false),
                     Timestamp = table.Column<DateTime>(nullable: false),
-                    Current_Phase_Average_Mean_A = table.Column<int>(nullable: false),
-                    Active_Energy_Delivered_Received_kWh = table.Column<int>(nullable: false),
-                    Active_Power_Kw = table.Column<int>(nullable: false),
-                    Weather_Temperature_Celsius = table.Column<int>(nullable: false),
-                    Weather_Relative_Humidity_Percent = table.Column<int>(nullable: false),
-                    Global_Horizontal_Radiation_WM2 = table.Column<int>(nullable: false),
-                    Diffuse_Horizontal_Radiation_WM2 = table.Column<int>(nullable: false),
-                    Wind_Direction_Degree = table.Column<int>(nullable: false)
+                    Current_Phase_Average_Mean_A = table.Column<double>(nullable: false),
+                    Active_Energy_Delivered_Received_kWh = table.Column<double>(nullable: false),
+                    Active_Power_Kw = table.Column<double>(nullable: false),
+                    Weather_Temperature_Celsius = table.Column<double>(nullable: false),
+                    Weather_Relative_Humidity_Percent = table.Column<double>(nullable: false),
+                    Global_Horizontal_Radiation_WM2 = table.Column<double>(nullable: false),
+                    Diffuse_Horizontal_Radiation_WM2 = table.Column<double>(nullable: false),
+                    Wind_Direction_Degree = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LiveDataFeed", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PredictedData",
+                columns: table => new
+                {
+                    Id = table.Column<double>(nullable: false),
+                    Timestamp = table.Column<DateTime>(nullable: false),
+                    PredictedCurrent = table.Column<double>(nullable: false),
+                    ExtraplatedCurrent = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PredictedData", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -169,23 +211,23 @@ namespace VoltairePower.Migrations
                     PeakInvEff = table.Column<double>(nullable: false),
                     AcOpVolt = table.Column<double>(nullable: false),
                     AcVolt = table.Column<string>(nullable: false),
-                    AcFreqNorminal = table.Column<double>(nullable: false),
-                    MaxContinuousOC = table.Column<double>(nullable: false),
+                    AcFreqNorminal = table.Column<string>(nullable: false),
+                    MaxContinuousOC = table.Column<string>(nullable: false),
                     PowerFact = table.Column<double>(nullable: false),
                     WireGPerStr = table.Column<int>(nullable: false),
                     TypeofWire = table.Column<int>(nullable: false),
                     LengthOfString = table.Column<double>(nullable: false),
-                    CustomerId = table.Column<int>(nullable: true)
+                    CustomerID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SolarSheetDetails", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SolarSheetDetails_Customers_CustomerId",
-                        column: x => x.CustomerId,
+                        name: "FK_SolarSheetDetails_Customers_CustomerID",
+                        column: x => x.CustomerID,
                         principalTable: "Customers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -200,21 +242,31 @@ namespace VoltairePower.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SolarSheetDetails_CustomerId",
+                name: "IX_SolarSheetDetails_CustomerID",
                 table: "SolarSheetDetails",
-                column: "CustomerId");
+                column: "CustomerID",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "ChartData");
+
+            migrationBuilder.DropTable(
                 name: "CheckLists");
+
+            migrationBuilder.DropTable(
+                name: "LineChart");
 
             migrationBuilder.DropTable(
                 name: "LiveDataFeed");
 
             migrationBuilder.DropTable(
                 name: "Logins");
+
+            migrationBuilder.DropTable(
+                name: "PredictedData");
 
             migrationBuilder.DropTable(
                 name: "SolarSheetDetails");

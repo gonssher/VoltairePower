@@ -34,7 +34,15 @@ namespace VoltairePower.Models
                 .HasOne<CheckList>(c => c.CheckList)
                 .WithOne(cl => cl.Customer)
                 .HasForeignKey<CheckList>(cl => cl.CustomerID);
+
+            modelBuilder.Entity<Customer>()
+                .HasOne<SolarSheetDetail>(s => s.SolarSheetDetail)
+                .WithOne(s1 => s1.Customer)
+                .HasForeignKey<SolarSheetDetail>(s1 => s1.CustomerID);
         }
+
+
+
         public DbSet<VoltairePower.Models.ChartData> ChartData { get; set; }
     }
 }

@@ -337,7 +337,7 @@ namespace VoltairePower.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<string>("DcInput")
@@ -406,7 +406,8 @@ namespace VoltairePower.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerID")
+                        .IsUnique();
 
                     b.ToTable("SolarSheetDetails");
                 });
@@ -471,8 +472,10 @@ namespace VoltairePower.Migrations
             modelBuilder.Entity("VoltairePower.Models.SolarSheetDetail", b =>
                 {
                     b.HasOne("VoltairePower.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
+                        .WithOne("SolarSheetDetail")
+                        .HasForeignKey("VoltairePower.Models.SolarSheetDetail", "CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

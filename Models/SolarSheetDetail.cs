@@ -19,11 +19,11 @@ namespace VoltairePower.Models
 
 
         [Required(ErrorMessage = "Please input the Latitude Location")]
-        [Display(Name = "Latitude Location", Prompt = "Select Array Location")]
+        [Display(Name = "Latitude Location", Prompt = "Array Location")]
         public string ArrayLocation { get; set; }
 
         [Required(ErrorMessage = "Please input the Longitude ")]
-        [Display(Name = "Longitude Location", Prompt = "Select Array Location")]
+        [Display(Name = "Longitude Location", Prompt = " Array Location")]
         public string ArrayLocationLong { get; set; }
 
         [Required(ErrorMessage = "Please enter the Solar Plant Type")]
@@ -125,7 +125,8 @@ namespace VoltairePower.Models
         [Display(Name = "Total Length of string wiring One way (Feet)", Prompt = "Total Length of string wiring (one way)")]
         public double LengthOfString { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
     }
 
 
@@ -139,11 +140,11 @@ namespace VoltairePower.Models
         StandAlone
     }
 
-    public enum ArrayLoc
-    { 
-        Latitude,
-        Longitude
-    }
+    //public enum ArrayLoc
+    //{ 
+    //    Latitude,
+    //    Longitude
+    //}
 
     public enum WireGauge
     {

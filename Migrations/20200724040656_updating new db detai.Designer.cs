@@ -10,8 +10,8 @@ using VoltairePower.Models;
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    [Migration("20200716152413_Creation of data sets")]
-    partial class Creationofdatasets
+    [Migration("20200724040656_updating new db detai")]
+    partial class updatingnewdbdetai
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,25 @@ namespace VoltairePower.Migrations
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("VoltairePower.Models.ChartData", b =>
+                {
+                    b.Property<double>("Id")
+                        .HasColumnType("float");
+
+                    b.Property<string>("TimeStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TranslatedVoltage")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Voltage")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ChartData");
+                });
 
             modelBuilder.Entity("VoltairePower.Models.CheckList", b =>
                 {
@@ -195,37 +214,75 @@ namespace VoltairePower.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("VoltairePower.Models.DataGet", b =>
+            modelBuilder.Entity("VoltairePower.Models.Data_Layer.PopulatingLineGraph", b =>
                 {
                     b.Property<double>("Id")
                         .HasColumnType("float");
 
-                    b.Property<float>("Active_Energy_Delivered_Received_kWh")
-                        .HasColumnType("real");
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
 
-                    b.Property<float>("Active_Power_Kw")
-                        .HasColumnType("real");
+                    b.Property<double>("TranslatedVoltage")
+                        .HasColumnType("float");
 
-                    b.Property<float>("Current_Phase_Average_Mean_A")
-                        .HasColumnType("real");
+                    b.Property<double>("Voltage")
+                        .HasColumnType("float");
 
-                    b.Property<float>("Diffuse_Horizontal_Radiation_WM2")
-                        .HasColumnType("real");
+                    b.HasKey("Id");
 
-                    b.Property<float>("Global_Horizontal_Radiation_WM2")
-                        .HasColumnType("real");
+                    b.ToTable("LineChart");
+                });
+
+            modelBuilder.Entity("VoltairePower.Models.Graph_Tables.PredictedActual", b =>
+                {
+                    b.Property<double>("Id")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ExtraplatedCurrent")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PredictedCurrent")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
-                    b.Property<float>("Weather_Relative_Humidity_Percent")
-                        .HasColumnType("real");
+                    b.HasKey("Id");
 
-                    b.Property<float>("Weather_Temperature_Celsius")
-                        .HasColumnType("real");
+                    b.ToTable("PredictedData");
+                });
 
-                    b.Property<float>("Wind_Direction_Degree")
-                        .HasColumnType("real");
+            modelBuilder.Entity("VoltairePower.Models.LiveFeedData", b =>
+                {
+                    b.Property<double>("Id")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Active_Energy_Delivered_Received_kWh")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Active_Power_Kw")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Current_Phase_Average_Mean_A")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Diffuse_Horizontal_Radiation_WM2")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Global_Horizontal_Radiation_WM2")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Weather_Relative_Humidity_Percent")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Weather_Temperature_Celsius")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Wind_Direction_Degree")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -263,8 +320,9 @@ namespace VoltairePower.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("AcFreqNorminal")
-                        .HasColumnType("float");
+                    b.Property<string>("AcFreqNorminal")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("AcOpVolt")
                         .HasColumnType("float");
@@ -281,7 +339,7 @@ namespace VoltairePower.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<string>("DcInput")
@@ -294,8 +352,9 @@ namespace VoltairePower.Migrations
                     b.Property<double>("LengthOfString")
                         .HasColumnType("float");
 
-                    b.Property<double>("MaxContinuousOC")
-                        .HasColumnType("float");
+                    b.Property<string>("MaxContinuousOC")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("MaxDc")
                         .HasColumnType("float");
@@ -349,7 +408,8 @@ namespace VoltairePower.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("CustomerID")
+                        .IsUnique();
 
                     b.ToTable("SolarSheetDetails");
                 });
@@ -414,8 +474,10 @@ namespace VoltairePower.Migrations
             modelBuilder.Entity("VoltairePower.Models.SolarSheetDetail", b =>
                 {
                     b.HasOne("VoltairePower.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
+                        .WithOne("SolarSheetDetail")
+                        .HasForeignKey("VoltairePower.Models.SolarSheetDetail", "CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

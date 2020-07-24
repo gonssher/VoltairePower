@@ -71,5 +71,7 @@ namespace VoltairePower.Models
         public virtual ICollection<Login> Logins { get; set; }
 
         public CheckList CheckList { get; set; }
+
+        public SolarSheetDetail SolarSheetDetail { get; set; }
     }
 }
