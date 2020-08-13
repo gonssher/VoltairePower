@@ -10,8 +10,8 @@ using VoltairePower.Models;
 namespace VoltairePower.Migrations
 {
     [DbContext(typeof(VoltairePowerContext))]
-    [Migration("20200724191221_Cleaning")]
-    partial class Cleaning
+    [Migration("20200813162755_updating my db")]
+    partial class updatingmydb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -393,6 +393,34 @@ namespace VoltairePower.Migrations
                         .IsUnique();
 
                     b.ToTable("SolarSheetDetails");
+                });
+
+            modelBuilder.Entity("VoltairePower.Models.UnplaanedEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EventCause")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EventDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Result")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SelfActionTaken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UnplannedEvent");
                 });
 
             modelBuilder.Entity("VoltairePower.Models.Weather.City", b =>

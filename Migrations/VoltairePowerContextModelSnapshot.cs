@@ -393,6 +393,34 @@ namespace VoltairePower.Migrations
                     b.ToTable("SolarSheetDetails");
                 });
 
+            modelBuilder.Entity("VoltairePower.Models.UnplaanedEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EventCause")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EventDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Result")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SelfActionTaken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UnplannedEvent");
+                });
+
             modelBuilder.Entity("VoltairePower.Models.Weather.City", b =>
                 {
                     b.Property<string>("ID")

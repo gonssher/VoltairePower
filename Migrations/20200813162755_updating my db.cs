@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VoltairePower.Migrations
 {
-    public partial class Cleaning : Migration
+    public partial class updatingmydb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -76,6 +76,22 @@ namespace VoltairePower.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PredictedData", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UnplannedEvent",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventDescription = table.Column<string>(nullable: false),
+                    EventCause = table.Column<string>(nullable: false),
+                    SelfActionTaken = table.Column<string>(nullable: false),
+                    Result = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UnplannedEvent", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -253,6 +269,9 @@ namespace VoltairePower.Migrations
 
             migrationBuilder.DropTable(
                 name: "SolarSheetDetails");
+
+            migrationBuilder.DropTable(
+                name: "UnplannedEvent");
 
             migrationBuilder.DropTable(
                 name: "WeatherData");

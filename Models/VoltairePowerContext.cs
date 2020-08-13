@@ -28,6 +28,8 @@ namespace VoltairePower.Models
 
         public DbSet<PredictedActual> PredictedData { get; set; }
 
+        public DbSet<UnplaanedEvent> UnplannedEvent { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>()
