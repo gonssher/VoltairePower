@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Home\Map.cshtml" />
     <None Include="wwwroot\images\End of String.jpg" />
     <None Include="wwwroot\images\Miles Riconada %282019_08_08 10_52_12 UTC%29 %281%29.jpg" />
     <None Include="wwwroot\images\Riconada Road.jpg" />

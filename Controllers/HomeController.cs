@@ -23,6 +23,11 @@ namespace VoltairePower.Controllers
             return View();
         }
 
+        public IActionResult Map()
+        {
+            return View();
+        }
+
         public IActionResult MainPage() {
             return View();
         }

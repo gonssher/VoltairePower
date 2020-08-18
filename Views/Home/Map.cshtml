@@ -1,0 +1,90 @@
+@{
+    Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
+    ViewData["Title"] = "Map";
+}
+<html>
+<head>
+    <script src="https://maps.googleapis.com/maps/api/js?"></script>
+</head>
+<body onLoad="DisplayGoogleMap();">
+    <div id="myDiv" style="width:100%;height:400px;"></div>
+
+
+
+    <script type="text/javascript">
+        function DisplayGoogleMap() {
+
+            //Set the Latitude and Longitude of the Map
+            var myAddress = new google.maps.LatLng(35.7361373, -81.2160594);
+            
+            //Create Options or set different Characteristics of Google Map
+            var mapOptions = {
+                center: myAddress,
+                zoom: 15,
+                minZoom: 15,
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            };
+
+            //Display the Google map in the div control with the defined Options
+            var map = new google.maps.Map(document.getElementById("myDiv"), mapOptions);
+
+            //Set Marker on the Map
+            var marker = new google.maps.Marker({
+                position: myAddress,
+                animation: google.maps.Animation.BOUNCE,
+            });
+
+            marker.setMap(map);
+        }
+    </script>
+        
+    <br />
+        Country : Australia  <br />
+
+
+
+</body>
+</html>
+
+
+
+
+
+<!--<html>
+
+<body>
+    <input type="button" value="Map" onclick="GoogleMap()" />
+    <div id="myDiv" style="width:100%;height:400px;"></div>
+
+    <script type="text/javascript">
+        function GoogleMap() {
+
+
+            var myLocation = new google.maps.LatLng(43.653225, -79.383186);
+
+
+            var mapOptions = {
+                center: myLocation,
+                zoom: 8,
+                minZoom: 1,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+
+            var map = new google.maps.Map(document.getElementById("myDiv"), mapOptions);
+            var marker = new google.maps.Marker({
+                position: myLocation,
+
+
+            });
+
+            marker.setMap(map);
+        }
+    </script>-->
+@*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_wRyS7OL9SM-bsQ48zmN_0SIc1laSXtU"></script>*@
+<!--<script src="https://maps.googleapis.com/maps/api/js?"></script>
+
+
+</body>
+</html>-->
+<!--API KEY AIzaSyA_wRyS7OL9SM-bsQ48zmN_0SIc1laSXtU --->
