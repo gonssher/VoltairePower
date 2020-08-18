@@ -10,7 +10,6 @@ using VoltairePower.Models;
 
 namespace VoltairePower.Controllers
 {
-
     public class LoginsController : Controller
     {
         private readonly VoltairePowerContext _context;
@@ -78,13 +77,17 @@ namespace VoltairePower.Controllers
                     HttpContext.Session.SetInt32("CustomerId", customer.Id);
                     HttpContext.Session.SetString("CustomerName", customer.CustName);
 
+
+
                     if (customer.Email == "admin@mail.com")
                     {
                         return RedirectToAction("AdminPanel", "Home");
                     }
                     else if (customer.IsCompletedReg)
                     {
-                        return RedirectToAction("SearchCity", "Weather");
+                        //return RedirectToAction("SearchCity", "Weather");
+                        return RedirectToAction("Mainpage", "Home");
+
                     }
                     else
                     {
