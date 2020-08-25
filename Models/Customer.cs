@@ -14,7 +14,7 @@ namespace VoltairePower.Models
 
         [MaxLength(22)]
         [MinLength(1)]
-        [Required(ErrorMessage = "Please make your first Initials Capital")]
+        [Required(ErrorMessage = "Please make your first Initials Capital eg :'Miles Mcdonald'")]
         [Display(Name = "Full Name", Prompt = "Full Name", Description = "Customer Full Name")]
         [RegularExpression("^[A-Z][a-z]*(\\s[A-Z][a-z]*)+$", ErrorMessage = "Please enter a valid name")]
         public string CustName { get; set; }
