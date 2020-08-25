@@ -64,8 +64,9 @@
                         <li><a href="@Url.Action("Mainpage", "Home")"><i class="fa fa-solar-panel"></i>System View</a></li>
                         <li><a href="../../LineChart"><i class="fa fa-chart-line"></i>String Voltage</a></li>
                         <li><a href="../../PredictedChart"><i class="fa fa-chart-bar"></i>String Current</a></li>
+                        <li><a href="@Url.Action("SearchCity","Weather")"><i class="fas fa-sun"></i>Local Weather</a></li>
                         <li><a href="@Url.Action("Create", "Checklists")"><i class="fa fa-info"></i>Checklist</a></li>
-                        <li><a href="@Url.Action("Map", "Home")"><i class="fa fa-info"></i>Map</a></li>
+                        <li><a href="@Url.Action("Map", "Home")"><i class="fas fa-map-marked-alt"></i>Map</a></li>
                     </ul>
                 </li>
                 <li>
@@ -78,7 +79,7 @@
                     <a href="#settingSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fa fa-cogs"></i> <span class="nav-label">Complaints & Reports </span></a>
                     <ul class="collapse list-unstyled" id="settingSubMenu">
                         <li><a href="@Url.Action("Create", "UnplaanedEvents")"><i class="fa fa-exclamation-triangle"></i>System Complaints</a></li>
-                        <li><a href="#">Reports</a></li>
+                        <li><a href="#"><i class="fas fa-bug"></i>Reports</a></li>
                     </ul>
                 </li>
             </ul>

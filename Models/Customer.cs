@@ -11,12 +11,12 @@ namespace VoltairePower.Models
     {
         [Key]
         public int Id { get; set; }
-
+        //Take of Restrictions
         [MaxLength(22)]
         [MinLength(1)]
-        [Required(ErrorMessage = "Please make your first Initials Capital eg :'Miles Mcdonald'")]
+        [Required(ErrorMessage = "Please make your first Letter Capital Only eg :'Miles Mcdonald'")]
         [Display(Name = "Full Name", Prompt = "Full Name", Description = "Customer Full Name")]
-        [RegularExpression("^[A-Z][a-z]*(\\s[A-Z][a-z]*)+$", ErrorMessage = "Please enter a valid name")]
+        [RegularExpression("^[A-Z][a-z]*(\\s[A-Z][a-z]*)+$", ErrorMessage = "Please make your first Letter Capital Only eg :'Miles Mcdonald'")]
         public string CustName { get; set; }
 
         [Required]
