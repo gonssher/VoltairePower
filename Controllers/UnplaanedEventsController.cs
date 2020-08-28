@@ -79,7 +79,8 @@ namespace VoltairePower.Controllers
                 unplaanedEvent.Customer = customer;
                 _context.Add(unplaanedEvent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Unplaanedevents");
+                //return RedirectToAction("Index", "Unplaanedevents");
+                return RedirectToAction("Mainpage", "Home");
             }
             return View(unplaanedEvent);
         }
