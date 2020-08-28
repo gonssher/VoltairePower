@@ -18,13 +18,13 @@
             <div class="col-md-12">
                 @if (Context.Session.GetInt32("CustomerId") == null)
                 {
-                    <a class="navbar-brand" asp-area="" asp-controller="Weather" asp-action="SearchCity">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="MainPage">
                         <img style="width: 200px; height: auto" src="/images/voltaire_power_logo.png">
                     </a>
                 }
                 else
                 {
-                    <a class="navbar-brand left" asp-area="" asp-controller="Weather" asp-action="SearchCity">
+                    <a class="navbar-brand left" asp-area="" asp-controller="Home" asp-action="MainPage">
                         <img style="width: 200px; height: auto" src="/images/voltaire_power_logo.png">
                     </a>
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse pull-right">
