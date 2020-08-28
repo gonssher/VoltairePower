@@ -36,7 +36,8 @@ namespace VoltairePower.Controllers
             //     return View(unplaanedEvent);
 
 
-            return View(await _context.CheckLists.ToListAsync());
+            return View(await _context.UnplannedEvent.ToListAsync());
+
 
         }
 
