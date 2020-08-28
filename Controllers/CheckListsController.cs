@@ -74,7 +74,7 @@ namespace VoltairePower.Controllers
 
                 _context.Add(checkList);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("SearchCity", "Weather");
+                return RedirectToAction("Mainpage", "Home");
             }
             return View(checkList);
         }

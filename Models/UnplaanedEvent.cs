@@ -39,6 +39,9 @@ namespace VoltairePower.Models
 
         public string Result { get; set; }
 
+        public int CustomerID { get; set; }
+        public Customer Customer { get; set; }
+
 
 
     }

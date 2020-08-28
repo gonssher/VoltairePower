@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,22 @@ namespace VoltairePower.Controllers
         // GET: UnplaanedEvents
         public async Task<IActionResult> Index()
         {
-            return View(await _context.UnplannedEvent.ToListAsync());
+            //return View(await _context.UnplannedEvent.ToListAsync());
+            //UnplaanedEvent = unplaanedEvent();
+            //UnplaanedEvent unplaanedEvents = new UnplaanedEvent();
+            //     //Customer customer = null;
+
+
+
+            //     var unplaanedEvent = await _context.UnplannedEvent.FindAsync(unplaanedEvents.CustomerID == customerId);
+
+
+
+            //     return View(unplaanedEvent);
+
+
+            return View(await _context.CheckLists.ToListAsync());
+
         }
 
         // GET: UnplaanedEvents/Details/5
@@ -55,11 +71,15 @@ namespace VoltairePower.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,EventDescription,EventCause,SelfActionTaken,Result")] UnplaanedEvent unplaanedEvent)
         {
+
             if (ModelState.IsValid)
             {
+                int customerId = Convert.ToInt32(HttpContext.Session.GetInt32("CustomerId"));
+                Customer customer = (from u in _context.Customers where u.Id == customerId select u).First<Customer>();
+                unplaanedEvent.Customer = customer;
                 _context.Add(unplaanedEvent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Unplaanedevents");
             }
             return View(unplaanedEvent);
         }
