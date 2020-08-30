@@ -1,0 +1,58 @@
+﻿@*@model IEnumerable<VoltairePower.Models.UnplaanedEvent>*@
+@model VoltairePower.Models.UnplaanedEvent
+
+@{
+    ViewData["Title"] = "CustomerReports";
+    Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
+}
+
+<h1>CustomerReports</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventCause)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelfActionTaken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.EventDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EventCause)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.SelfActionTaken)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Result)
+            </td>
+
+        </tr>
+
+        <!--<td>-->
+        @*<a asp-action="Edit" asp-route-id="@model.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@model.Id">Details</a> |*@
+        @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+        <!--</td>-->
+
+    </tbody>
+
+</table>

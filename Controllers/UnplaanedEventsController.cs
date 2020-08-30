@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,35 +23,50 @@ namespace VoltairePower.Controllers
         // GET: UnplaanedEvents
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.UnplannedEvent.ToListAsync());
-            //UnplaanedEvent = unplaanedEvent();
-            //UnplaanedEvent unplaanedEvents = new UnplaanedEvent();
-            //     //Customer customer = null;
-
-
-
-            //     var unplaanedEvent = await _context.UnplannedEvent.FindAsync(unplaanedEvents.CustomerID == customerId);
-
-
-
-            //     return View(unplaanedEvent);
-
 
             return View(await _context.UnplannedEvent.ToListAsync());
 
+        }
+
+
+        public IActionResult NotFound()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> CustomerReports(int? id)
+        {
+            id = (int)HttpContext.Session.GetInt32("CustomerId");
+
+            if (id == null)
+            {
+                return RedirectToAction("NotFound", "UnplaanedEvents");
+            }
+
+                var unplaanedEvent = await _context.UnplannedEvent
+                    .FirstOrDefaultAsync(m => m.CustomerID == id);
+
+            if (unplaanedEvent == null)
+            {
+                return RedirectToAction("NotFound", "UnplaanedEvents");
+            }
+
+            return View(unplaanedEvent);
 
         }
 
+
+
         // GET: UnplaanedEvents/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details (int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
-
+            
             var unplaanedEvent = await _context.UnplannedEvent
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id == id );
             if (unplaanedEvent == null)
             {
                 return NotFound();
