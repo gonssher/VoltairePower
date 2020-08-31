@@ -28,7 +28,6 @@ namespace VoltairePower.Controllers
 
         }
 
-
         public IActionResult NotFound()
         {
             return View();
@@ -43,8 +42,7 @@ namespace VoltairePower.Controllers
                 return RedirectToAction("NotFound", "UnplaanedEvents");
             }
 
-                var unplaanedEvent = await _context.UnplannedEvent
-                    .FirstOrDefaultAsync(m => m.CustomerID == id);
+            var unplaanedEvent =  _context.UnplannedEvent.Where(m => m.CustomerID == id).ToList();
 
             if (unplaanedEvent == null)
             {

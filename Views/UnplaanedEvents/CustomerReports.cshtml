@@ -1,5 +1,5 @@
-﻿@*@model IEnumerable<VoltairePower.Models.UnplaanedEvent>*@
-@model VoltairePower.Models.UnplaanedEvent
+﻿@model IEnumerable<VoltairePower.Models.UnplaanedEvent>
+@*@model VoltairePower.Models.UnplaanedEvent*@
 
 @{
     ViewData["Title"] = "CustomerReports";
@@ -30,29 +30,31 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
-        <tr>
-            <td>
-                @Html.DisplayFor(model => model.EventDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.EventCause)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.SelfActionTaken)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Result)
-            </td>
 
-        </tr>
-
-        <!--<td>-->
-        @*<a asp-action="Edit" asp-route-id="@model.Id">Edit</a> |
-        <a asp-action="Details" asp-route-id="@model.Id">Details</a> |*@
-        @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
-        <!--</td>-->
-
+      <tbody>
+        @foreach (var item in (IEnumerable<VoltairePower.Models.UnplaanedEvent>)Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventCause)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SelfActionTaken)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Result)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                </td>
+            </tr>
+        }
     </tbody>
+  
 
 </table>
