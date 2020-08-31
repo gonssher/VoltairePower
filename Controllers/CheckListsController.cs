@@ -125,7 +125,7 @@ namespace VoltairePower.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("SearchCity", "Weather");
+                return RedirectToAction("MainPage", "Home");
             }
             return View(checkList);
         }
