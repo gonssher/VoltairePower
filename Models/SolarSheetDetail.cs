@@ -14,7 +14,7 @@ namespace VoltairePower.Models
 /// /////////////////////////////////////////////////////////////////////////////////
 /// </summary>
         [Required(ErrorMessage = "Please enter the Solar Array Size")]
-        [Display(Name = "Soalr Array Size (KW)", Prompt = "Solar Array Size")]
+        [Display(Name = "Solar Array Size (KW)", Prompt = "Solar Array Size")]
         public int SolarSize { get; set; }
 
 
