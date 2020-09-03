@@ -4,7 +4,8 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
 }
-    <link rel="stylesheet" href="~/css/StyleSolarInternal.css" />
+
+<link rel="stylesheet" href="~/css/StyleSolarInternal.css" />
 <h4>Edit your Solar Sheet</h4>
 
 <hr />
@@ -38,6 +39,7 @@
             Please Click Here!
             <div class="container">
                 <button type="button" class="button" data-toggle="collapse" data-target="#demo">Inverter Specifications</button>
+                @*<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Inverter Specifications</button>*@
                 <div id="demo" class="collapse">
                     <div class="form-group">
                         <label asp-for="NumberofInverters" class="control-label"></label>
@@ -177,6 +179,6 @@
     }
 </script>
 @*<div>
-    <a asp-action="Index">Back to List</a>
-</div>*@
+        <a asp-action="Index">Back to List</a>
+    </div>*@
 

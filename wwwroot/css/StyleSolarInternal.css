@@ -4,6 +4,7 @@
     background-position: center center;
     background-color: White;
     font-weight: bold;
+    height: 100%
 }
 
 
@@ -36,14 +37,6 @@ form-group {
     .active, .collapsible:hover {
         background-color: #555;
     }
-
-.content {
-    padding: 0 18px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    background-color: #f1f1f1;
-}
 
 
 .button {
