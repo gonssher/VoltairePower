@@ -20,7 +20,7 @@
                         <img style="width: 200px; height: auto" src="/images/voltaire_power_logo.png">
                     </a>
                 }
-                else
+                else if (Context.Session.GetInt32("CustomerId") == null)
                 {
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                         <img, style="width: 200px; height: auto" src="/images/voltaire_power_logo.png">
