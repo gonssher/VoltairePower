@@ -11,11 +11,11 @@ using VoltairePower.Models;
 
 namespace VoltairePower.Controllers
 {
-    public class UnplaanedEventsController : Controller
+    public class UnplannedEventsController : Controller
     {
         private readonly VoltairePowerContext _context;
 
-        public UnplaanedEventsController(VoltairePowerContext context)
+        public UnplannedEventsController(VoltairePowerContext context)
         {
             _context = context;
         }
@@ -39,14 +39,14 @@ namespace VoltairePower.Controllers
 
             if (id == null)
             {
-                return RedirectToAction("NotFound", "UnplaanedEvents");
+                return RedirectToAction("NotFound", "UnplannedEvents");
             }
 
             var unplaanedEvent =  _context.UnplannedEvent.Where(m => m.CustomerID == id).ToList();
 
             if (unplaanedEvent == null)
             {
-                return RedirectToAction("NotFound", "UnplaanedEvents");
+                return RedirectToAction("NotFound", "UnplannedEvents");
             }
 
             return View(unplaanedEvent);
@@ -84,7 +84,7 @@ namespace VoltairePower.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,EventDescription,EventCause,SelfActionTaken,Result")] UnplaanedEvent unplaanedEvent)
+        public async Task<IActionResult> Create([Bind("Id,EventDescription,EventCause,SelfActionTaken,Result")] UnplannedEvent unplaanedEvent)
         {
 
             if (ModelState.IsValid)
@@ -121,7 +121,7 @@ namespace VoltairePower.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,EventDescription,EventCause,SelfActionTaken,Result")] UnplaanedEvent unplaanedEvent)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EventDescription,EventCause,SelfActionTaken,Result")] UnplannedEvent unplaanedEvent)
         {
             if (id != unplaanedEvent.Id)
             {

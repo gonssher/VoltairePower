@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VoltairePower.Models
 {
-    public class UnplaanedEvent
+    public class UnplannedEvent
     {
 
 
