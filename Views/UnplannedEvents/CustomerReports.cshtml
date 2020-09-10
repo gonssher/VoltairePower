@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<VoltairePower.Models.UnplannedEvent>
-@*@model VoltairePower.Models.UnplaanedEvent*@
+
 
 @{
     ViewData["Title"] = "CustomerReports";
@@ -25,15 +25,15 @@
                 @Html.DisplayNameFor(model => model.Result)
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.Customer)
-            </th>*@
+                    @Html.DisplayNameFor(model => model.Customer)
+                </th>*@
             <th></th>
         </tr>
     </thead>
 
-      <tbody>
+    <tbody>
         @foreach (var item in (IEnumerable<VoltairePower.Models.UnplannedEvent>)Model)
-            {
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.EventDescription)
@@ -49,12 +49,12 @@
                 </td>
                 <td>
                     @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                     @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
                 </td>
             </tr>
         }
     </tbody>
-  
+
 
 </table>

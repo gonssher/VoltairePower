@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,22 +19,49 @@ namespace VoltairePower.Controllers
             _context = context;
         }
 
-        // GET: UnplaanedEvents
+        // GET: UnplannedEvents
         public async Task<IActionResult> Index()
         {
-
-            return View(await _context.UnplannedEvent.ToListAsync());
-
+            var voltairePowerContext = _context.UnplannedEvent.Include(u => u.Customer);
+            return View(await voltairePowerContext.ToListAsync());
         }
 
-#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
+        // GET: UnplannedEvents/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var unplannedEvent = await _context.UnplannedEvent
+                .Include(u => u.Customer)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (unplannedEvent == null)
+            {
+                return NotFound();
+            }
+
+            return View(unplannedEvent);
+        }
+
+        // GET: UnplannedEvents/Create
+        public IActionResult Create()
+        {
+            ViewData["CustomerID"] = new SelectList(_context.Customers, "Id", "ConfirmPassword");
+            return View();
+        }
+
+
         public IActionResult NotFound()
-#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
+
         {
             return View();
         }
 
-        public IActionResult CustomerReports(int? id)
+
+
+        public async Task<IActionResult> CustomerReports(int? id)
         {
             id = (int)HttpContext.Session.GetInt32("CustomerId");
 
@@ -57,52 +83,39 @@ namespace VoltairePower.Controllers
 
 
 
-        // GET: UnplaanedEvents/Details/5
-        public async Task<IActionResult> Details (int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            
-            var unplaanedEvent = await _context.UnplannedEvent
-                .FirstOrDefaultAsync(m => m.Id == id );
-            if (unplaanedEvent == null)
-            {
-                return NotFound();
-            }
 
-            return View(unplaanedEvent);
-        }
 
-        // GET: UnplaanedEvents/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
 
-        // POST: UnplaanedEvents/Create
+
+
+
+
+
+
+
+
+
+        // POST: UnplannedEvents/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,EventDescription,EventCause,SelfActionTaken,Result")] UnplannedEvent unplaanedEvent)
+        public async Task<IActionResult> Create([Bind("Id,EventDescription,EventCause,SelfActionTaken,Result,CustomerID")] UnplannedEvent unplannedEvent)
         {
-
+   
             if (ModelState.IsValid)
             {
                 int customerId = Convert.ToInt32(HttpContext.Session.GetInt32("CustomerId"));
                 Customer customer = (from u in _context.Customers where u.Id == customerId select u).First<Customer>();
-                unplaanedEvent.Customer = customer;
-                _context.Add(unplaanedEvent);
+                unplannedEvent.Customer = customer;
+                _context.Add(unplannedEvent);
                 await _context.SaveChangesAsync();
-                //return RedirectToAction("Index", "Unplaanedevents");
                 return RedirectToAction("Mainpage", "Home");
             }
-            return View(unplaanedEvent);
+            return View(unplannedEvent);
         }
 
-        // GET: UnplaanedEvents/Edit/5
+        // GET: UnplannedEvents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -110,22 +123,23 @@ namespace VoltairePower.Controllers
                 return NotFound();
             }
 
-            var unplaanedEvent = await _context.UnplannedEvent.FindAsync(id);
-            if (unplaanedEvent == null)
+            var unplannedEvent = await _context.UnplannedEvent.FindAsync(id);
+            if (unplannedEvent == null)
             {
                 return NotFound();
             }
-            return View(unplaanedEvent);
+            ViewData["CustomerID"] = new SelectList(_context.Customers, "Id", "ConfirmPassword", unplannedEvent.CustomerID);
+            return View(unplannedEvent);
         }
 
-        // POST: UnplaanedEvents/Edit/5
+        // POST: UnplannedEvents/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,EventDescription,EventCause,SelfActionTaken,Result")] UnplannedEvent unplaanedEvent)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EventDescription,EventCause,SelfActionTaken,Result,CustomerID")] UnplannedEvent unplannedEvent)
         {
-            if (id != unplaanedEvent.Id)
+            if (id != unplannedEvent.Id)
             {
                 return NotFound();
             }
@@ -134,12 +148,12 @@ namespace VoltairePower.Controllers
             {
                 try
                 {
-                    _context.Update(unplaanedEvent);
+                    _context.Update(unplannedEvent);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UnplaanedEventExists(unplaanedEvent.Id))
+                    if (!UnplannedEventExists(unplannedEvent.Id))
                     {
                         return NotFound();
                     }
@@ -150,10 +164,11 @@ namespace VoltairePower.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(unplaanedEvent);
+            ViewData["CustomerID"] = new SelectList(_context.Customers, "Id", "ConfirmPassword", unplannedEvent.CustomerID);
+            return View(unplannedEvent);
         }
 
-        // GET: UnplaanedEvents/Delete/5
+        // GET: UnplannedEvents/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -161,28 +176,29 @@ namespace VoltairePower.Controllers
                 return NotFound();
             }
 
-            var unplaanedEvent = await _context.UnplannedEvent
+            var unplannedEvent = await _context.UnplannedEvent
+                .Include(u => u.Customer)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (unplaanedEvent == null)
+            if (unplannedEvent == null)
             {
                 return NotFound();
             }
 
-            return View(unplaanedEvent);
+            return View(unplannedEvent);
         }
 
-        // POST: UnplaanedEvents/Delete/5
+        // POST: UnplannedEvents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var unplaanedEvent = await _context.UnplannedEvent.FindAsync(id);
-            _context.UnplannedEvent.Remove(unplaanedEvent);
+            var unplannedEvent = await _context.UnplannedEvent.FindAsync(id);
+            _context.UnplannedEvent.Remove(unplannedEvent);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UnplaanedEventExists(int id)
+        private bool UnplannedEventExists(int id)
         {
             return _context.UnplannedEvent.Any(e => e.Id == id);
         }
