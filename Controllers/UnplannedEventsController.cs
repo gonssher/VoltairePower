@@ -28,12 +28,14 @@ namespace VoltairePower.Controllers
 
         }
 
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
         public IActionResult NotFound()
+#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
         {
             return View();
         }
 
-        public async Task<IActionResult> CustomerReports(int? id)
+        public IActionResult CustomerReports(int? id)
         {
             id = (int)HttpContext.Session.GetInt32("CustomerId");
 
@@ -42,7 +44,7 @@ namespace VoltairePower.Controllers
                 return RedirectToAction("NotFound", "UnplannedEvents");
             }
 
-            var unplaanedEvent =  _context.UnplannedEvent.Where(m => m.CustomerID == id).ToList();
+            var unplaanedEvent = _context.UnplannedEvent.Where(m => m.CustomerID == id).ToList();
 
             if (unplaanedEvent == null)
             {
