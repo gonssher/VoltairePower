@@ -20,21 +20,21 @@ namespace VoltairePower.Models
         public string EventDescription { get; set; }
 
 
-        [Required(ErrorMessage = "Please Enter the cause of the Event")]
+        //[Required(ErrorMessage = "Please Enter the cause of the Event")]
         [Display(Name = "Event Cause", Prompt = "Event Cause")]
 
         public string EventCause { get; set; }
 
 
 
-        [Required(ErrorMessage = "Please Enter the Self Action Taken")]
+        //[Required(ErrorMessage = "Please Enter the Self Action Taken")]
         [Display(Name = "Self Action", Prompt = "Self Action")]
 
         public string SelfActionTaken { get; set; }
 
 
 
-        [Required(ErrorMessage = "Please Enter the cause of the Event")]
+        //[Required(ErrorMessage = "Please Enter the cause of the Event")]
         [Display(Name = "Result", Prompt = "Result")]
 
         public string Result { get; set; }
