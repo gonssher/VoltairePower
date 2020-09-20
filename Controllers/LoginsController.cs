@@ -81,7 +81,7 @@ namespace VoltairePower.Controllers
 
                     if (customer.Email == "admin@mail.com")
                     {
-                        return RedirectToAction("AdminPanel", "Home");
+                        return RedirectToAction("Index", "Customers");
                     }
                     else if (customer.IsCompletedReg)
                     {
