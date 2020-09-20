@@ -61,24 +61,25 @@
                     <ul class="collapse list-unstyled" id="viewSubMenu">
                         @*<li class="active"><a href="#"><i class="fa fa-tachometer-alt"></i>Overview</a></li>*@
                         <li><a href="@Url.Action("Mainpage", "Home")"><i class="fa fa-solar-panel"></i>System View</a></li>
-                        <li><a href="../../LineChart"><i class="fa fa-chart-line"></i>String Voltage</a></li>
+                        <li><a href="#"><i class="fa fa-chart-line"></i>String Voltage</a></li> @*../../LineChart*@
                         <li><a href="../../PredictedChart"><i class="fa fa-chart-bar"></i>String Current</a></li>
-                        <li><a href="@Url.Action("SearchCity","Weather")"><i class="fas fa-sun"></i>Local Weather</a></li>
+                        <li><a href="#"><i class="fas fa-sun"></i>Local Weather</a></li>@*@Url.Action("SearchCity","Weather")*@
                         <li><a href="@Url.Action("Create", "Checklists")"><i class="fa fa-info"></i>Checklist</a></li>
-                        <li><a href="@Url.Action("Map", "Home")"><i class="fas fa-map-marked-alt"></i>Map</a></li>
+                        <li><a href="#)"><i class="fas fa-map-marked-alt"></i>Map</a></li>@*@Url.Action("Map", "Home")*@
                     </ul>
                 </li>
                 <li>
                     <a href="#editSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fa fa-edit"></i> <span class="nav-label">Edit</span></a>
                     <ul class="collapse list-unstyled" id="editSubMenu">
-                        <li><a href="@Url.Action("Create", "SolarSheetDetails")"><i class="fa fa-user-edit"></i>Edit Solar Sheet</a></li>
+                        <li><a href="#"><i class="fa fa-user-edit"></i>Edit Solar Sheet</a></li>
+                        @*@Url.Action("Create", "SolarSheetDetails")*@
                     </ul>
                 </li>
                 <li>
                     <a href="#settingSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fa fa-cogs"></i> <span class="nav-label">Complaints & Reports </span></a>
                     <ul class="collapse list-unstyled" id="settingSubMenu">
-                        <li><a href="@Url.Action("Create", "UnplannedEvents")"><i class="fa fa-exclamation-triangle"></i>System Complaints</a></li>
-                        <li><a href="@Url.Action("CustomerReports", "Unplannedevents")"><i class="fas fa-bug"></i>Reports</a></li>
+                        <li><a href="#"><i class="fa fa-exclamation-triangle"></i>System Complaints</a></li> @*@Url.Action("Create", "UnplannedEvents")*@
+                        <li><a href="#"><i class="fas fa-bug"></i>Reports</a></li> @*@Url.Action("CustomerReports", "Unplannedevents")*@
                     </ul>
                 </li>
             </ul>
