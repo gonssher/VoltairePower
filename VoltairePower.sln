@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoltairePower", "VoltairePower.csproj", "{58599797-61EA-4D25-8EF3-D6F1671B2674}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parameterized_Testing", "..\Parameterized_Testing\UnitTestProjectDataDriven\UnitTestProjectDataDriven\Parameterized_Testing.csproj", "{D5241D23-A8F4-42A5-B2E0-9F045E56D4D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parameterized_Testing", "..\Parameterized_Testing\Parameterized_Testing\Parameterized_Testing\Parameterized_Testing.csproj", "{D5241D23-A8F4-42A5-B2E0-9F045E56D4D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
