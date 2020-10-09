@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using VoltairePower.Models;
+using VoltairePower.Models.Dao_Graph;
 
 namespace ChartApp.Pages
 {
@@ -20,18 +21,21 @@ namespace ChartApp.Pages
         }
         public void OnGet()
         {
-            chartDataList = ChartData();
+            chartDataList = ChartDataDao();
         }
 
-        private List<ChartData> ChartData()
+        private List<ChartData> ChartDataDao()
         {
             connectionString = _configuration.GetConnectionString("ConnectionString");
 
             List<ChartData> chartDataList = new List<ChartData>();
 
-            ChartData chartData = new ChartData();
+       //     ChartData chartData = new ChartData();
 
-            chartDataList = chartData.GetChartData(connectionString);
+            ChartDataDao chartDataDao = new ChartDataDao();
+
+            chartDataList = chartDataDao.GetChartData(connectionString);
+           // chartDataList = chartData.GetChartData(connectionString);
 
             return chartDataList;
         }

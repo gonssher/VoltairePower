@@ -3,14 +3,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Data;
 using System.Diagnostics;
 
+
+
 namespace UnitTestProjectDataDriven
 {
     [TestClass]
     public class ParameterizedTesting
     {
-        private TestContext _testContext;
+        private Microsoft.VisualStudio.TestTools.UnitTesting.TestContext _testContext;
 
-        public  TestContext TestContext {
+        public Microsoft.VisualStudio.TestTools.UnitTesting.TestContext TestContext {
 
             get { return _testContext; }
 
@@ -28,9 +30,19 @@ namespace UnitTestProjectDataDriven
             string variable2 = (_testContext.DataRow["EmailExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["EmailExpected"].ToString());
 
-            Assert.AreEqual(variable1, variable2); 
+         TestingNUnitCases nUnitCases = new TestingNUnitCases();
+
+
+            nUnitCases.makeSureValidEmail(variable1, variable2);
+
+            
+
+
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
+
         }
 
+   
 
         [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
@@ -43,7 +55,12 @@ namespace UnitTestProjectDataDriven
             string variable2 = (_testContext.DataRow["PasswordExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["PasswordExpected"].ToString());
 
-            Assert.AreEqual(variable1, variable2); 
+            TestingNUnitCases nUnitCases = new TestingNUnitCases();
+
+
+            nUnitCases.makeSureValid(variable1, variable2);
+
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2); 
         }
 
         [TestMethod]
@@ -57,7 +74,13 @@ namespace UnitTestProjectDataDriven
             int variable2 = Convert.ToInt32(_testContext.DataRow["StreetNumberExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["StreetNumberExpected"].ToString());
 
-            Assert.AreEqual(variable1, variable2);
+            TestingNUnitCases nUnitCases = new TestingNUnitCases();
+
+
+            nUnitCases.makeSureNumberIsValid(variable1, variable2);
+
+
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
         [TestMethod]
@@ -71,7 +94,12 @@ namespace UnitTestProjectDataDriven
             string variable2 = (_testContext.DataRow["StreetNameExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["StreetNameExpected"].ToString());
 
-            Assert.AreEqual(variable1, variable2);
+            TestingNUnitCases nUnitCases = new TestingNUnitCases();
+
+
+            nUnitCases.makeSureValid(variable1, variable2);
+
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
         [TestMethod]
@@ -86,7 +114,12 @@ namespace UnitTestProjectDataDriven
             int variable2 = Convert.ToInt32(_testContext.DataRow["PhoneNumberExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["PhoneNumberExpected"].ToString());
 
-            Assert.AreEqual(variable1, variable2);
+            TestingNUnitCases nUnitCases = new TestingNUnitCases();
+
+
+            nUnitCases.makeSureNumberIsValid(variable1, variable2);
+
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
 
@@ -101,7 +134,13 @@ namespace UnitTestProjectDataDriven
             string variable2 = (_testContext.DataRow["CustomerNameExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["CustomerNameExpected"].ToString());
 
-            Assert.AreEqual(variable1, variable2);
+            TestingNUnitCases nUnitCases = new TestingNUnitCases();
+
+
+            nUnitCases.makeSureValid(variable1, variable2);
+
+
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
 

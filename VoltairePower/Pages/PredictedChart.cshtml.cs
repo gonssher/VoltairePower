@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using VoltairePower.Models;
 using VoltairePower.Models.Graphs;
+using VoltairePower.Models.Dao_Graph;
 
 namespace ChartApp.Pages
 {
@@ -30,9 +31,11 @@ namespace ChartApp.Pages
 
             List<PredictedAnalysis> chartDataList = new List<PredictedAnalysis>();
 
-            PredictedAnalysis chartData = new PredictedAnalysis();
+          //  PredictedAnalysis chartData = new PredictedAnalysis();
+            PredictiveAnalysisDao chartDatPredictive = new PredictiveAnalysisDao();
+            chartDataList = chartDatPredictive.GetChartData(connectionString);
 
-            chartDataList = chartData.GetChartData(connectionString);
+           // chartDataList = chartData.GetChartData(connectionString);
 
             return chartDataList;
         }

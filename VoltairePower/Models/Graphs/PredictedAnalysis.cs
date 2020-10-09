@@ -16,60 +16,60 @@ namespace VoltairePower.Models.Graphs
         public double PredictedCurrent { get; set; }
         public double ExtraplatedCurrent { get; set; }
 
-        public List<PredictedAnalysis> GetChartData(string connectionString)
-        {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+//        public List<PredictedAnalysis> GetChartData(string connectionString)
+//        {
+//            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
 
-            builder.DataSource = "voltaire.database.windows.net";
-            builder.UserID = "Sherwin";
-            builder.Password = "shannonnA4";
-            builder.InitialCatalog = "VoltairePowers";
+//            builder.DataSource = "voltaire.database.windows.net";
+//            builder.UserID = "Sherwin";
+//            builder.Password = "shannonnA4";
+//            builder.InitialCatalog = "VoltairePowers";
 
-            List<PredictedAnalysis> chartDataList = new List<PredictedAnalysis>();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    connection.Open();
-                    StringBuilder sb = new StringBuilder();
+//            List<PredictedAnalysis> chartDataList = new List<PredictedAnalysis>();
+//            try
+//            {
+//                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+//                {
+//                    connection.Open();
+//                    StringBuilder sb = new StringBuilder();
 
-                    sb.Append("SELECT  ExtraplatedCurrent,FORMAT(Timestamp, 'MM.dd HH:mm') AS Timestamp , PredictedCurrent FROM PredictedData");
+//                    sb.Append("SELECT  ExtraplatedCurrent,FORMAT(Timestamp, 'MM.dd HH:mm') AS Timestamp , PredictedCurrent FROM PredictedData");
 
-                    String sql = sb.ToString();
-
-
+//                    String sql = sb.ToString();
 
 
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader dr = command.ExecuteReader())
-                        {
-                            while (dr.Read())
-                            {
 
 
-                                PredictedAnalysis chartData = new PredictedAnalysis();
+//                    using (SqlCommand command = new SqlCommand(sql, connection))
+//                    {
+//                        using (SqlDataReader dr = command.ExecuteReader())
+//                        {
+//                            while (dr.Read())
+//                            {
 
-//                                chartData.Id = Convert.ToInt32(dr["Id"]);
-                                chartData.ExtraplatedCurrent = Convert.ToDouble(dr["ExtraplatedCurrent"]);
-                                chartData.Timestamp = dr["TimeStamp"].ToString();
-                                chartData.PredictedCurrent = Convert.ToDouble(dr["PredictedCurrent"]);
+
+//                                PredictedAnalysis chartData = new PredictedAnalysis();
+
+////                                chartData.Id = Convert.ToInt32(dr["Id"]);
+//                                chartData.ExtraplatedCurrent = Convert.ToDouble(dr["ExtraplatedCurrent"]);
+//                                chartData.Timestamp = dr["TimeStamp"].ToString();
+//                                chartData.PredictedCurrent = Convert.ToDouble(dr["PredictedCurrent"]);
                           
 
-                                chartDataList.Add(chartData);
-                            }
-                        }
-                    }
+//                                chartDataList.Add(chartData);
+//                            }
+//                        }
+//                    }
 
-                }
-            }
-            catch (SqlException e)
-            { Console.WriteLine(e.ToString()); }
+//                }
+//            }
+//            catch (SqlException e)
+//            { Console.WriteLine(e.ToString()); }
 
-            return chartDataList;
+//            return chartDataList;
 
 
-        }
+//        }
 
 
 
