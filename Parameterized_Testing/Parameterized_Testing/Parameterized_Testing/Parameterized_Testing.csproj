@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="ParameterizedTesting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TesintNunit.cs" />
     <Compile Include="TestingNUnitCases.cs" />
   </ItemGroup>
   <ItemGroup>

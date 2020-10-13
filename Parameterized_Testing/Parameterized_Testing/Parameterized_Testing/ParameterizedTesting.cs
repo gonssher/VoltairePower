@@ -58,7 +58,7 @@ namespace UnitTestProjectDataDriven
             TestingNUnitCases nUnitCases = new TestingNUnitCases();
 
 
-            nUnitCases.makeSureValid(variable1, variable2);
+            nUnitCases.makeSurePassword(variable1, variable2);
 
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2); 
         }
@@ -123,7 +123,7 @@ namespace UnitTestProjectDataDriven
         }
 
 
-        [TestMethod]
+         [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingName()

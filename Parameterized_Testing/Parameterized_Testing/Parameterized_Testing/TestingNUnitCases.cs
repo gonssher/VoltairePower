@@ -26,19 +26,32 @@ namespace UnitTestProjectDataDriven
         public string makeSureValid(string variable1, string variable2)
         {
             string content = "both inputs are matching and testing has passed";
+            int result = 0;
 
-            if (variable1 != variable2)
+            if (int.TryParse(variable1, out result))
             {
 
-                throw new ArgumentException("input mismatch please try again");
+                throw new ArgumentException("The input you have entered cannot be accepted please enter only string " + variable1 +"is not allowed");
 
             }
-            else if (variable1 == "")
+         
+            //else if (variable1 != variable2)
+            //{
+
+            //    throw new ArgumentException("input mismatch please try again");
+
+            //}
+            else if (string.IsNullOrEmpty(variable1))
+            {
+
+                throw new ArgumentException("input field is blank Please re try var1");
+
+
+            }
+            else if (string.IsNullOrEmpty(variable2))
             {
 
                 throw new ArgumentException("input field is blank Please re try");
-
-
             }
 
             return content;
@@ -52,16 +65,16 @@ namespace UnitTestProjectDataDriven
         {
             string content = "both inputs are matching and testing has passed";
 
-            if (!variable1.Contains('@'))
+            if ( variable1 == "")
             {
-
-                throw new ArgumentException("Please input the string in the correct format");
+                throw new ArgumentException("input field is blank Please re try");
 
             }
-            else if (variable1 == "")
+            else if (!variable1.Contains('@'))
             {
 
                 throw new ArgumentException("input field is blank Please re try");
+                throw new ArgumentException("Please input the email with @ " + variable1 + "Your email doesnt have an @");
 
 
             }
@@ -82,8 +95,8 @@ namespace UnitTestProjectDataDriven
         public string makeSureNumberIsValid(int variable1, int variable2)
         {
             string content = "both inputs are matching and testing has passed";
-
-            if (variable1 != variable2)
+         
+             if (variable1 != variable2)
             {
 
                 throw new ArgumentException("input mismatch please try again");
@@ -99,10 +112,34 @@ namespace UnitTestProjectDataDriven
 
             return content;
 
+        }
+
+
+        public string makeSurePassword(string variable1, string variable2)
+        {
+            string content = "both inputs are matching and testing has passed";
+
+            if (variable1 == null)
+            {
+                throw new ArgumentException("input field is blank Please re try");
+            }
+            else if ( variable1 != variable2)
+            {
+
+
+                throw new ArgumentException("input mismatch please try again" + "input by user " + variable1 + "Second Expected Input" + variable2);
+
+            }
+
+            return content;
+
 
 
 
         }
+
+
+
 
     }
 }
