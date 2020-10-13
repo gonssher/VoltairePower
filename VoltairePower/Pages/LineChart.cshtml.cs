@@ -21,18 +21,18 @@ namespace ChartApp.Pages
         }
         public void OnGet()
         {
-            chartDataList = ChartDataDao();
+            chartDataList = PopulatingLineGraph();
         }
 
-        private List<ChartData> ChartDataDao()
+        private List<ChartData> PopulatingLineGraph()
         {
             connectionString = _configuration.GetConnectionString("ConnectionString");
 
             List<ChartData> chartDataList = new List<ChartData>();
 
-       //     ChartData chartData = new ChartData();
+            //     ChartData chartData = new ChartData();
 
-            ChartDataDao chartDataDao = new ChartDataDao();
+            PopulatingLineGraph chartDataDao = new PopulatingLineGraph();
 
             chartDataList = chartDataDao.GetChartData(connectionString);
            // chartDataList = chartData.GetChartData(connectionString);

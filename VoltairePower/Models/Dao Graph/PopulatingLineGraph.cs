@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace VoltairePower.Models.Dao_Graph
 {
-    public class ChartDataDao
+    public class PopulatingLineGraph
     {
 
 
