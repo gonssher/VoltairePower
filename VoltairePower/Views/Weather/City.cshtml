@@ -13,41 +13,41 @@
 
             <h4>Forecast for the city of @Model.Name</h4>
 
-            <label asp-for="Name"></label>
+            <i class="fas fa-globe"></i><label asp-for="Name"></label>
             <span class="badge">@Model.Name</span>
             <br />
 
-            <label asp-for="Temp"></label>
+            <i class="fas fa-temperature-high"></i><label asp-for="Temp"></label>
             <span class="badge">@Model.Temp °C</span>
             <br />
 
-            <label asp-for="Humidity"></label>
+            <i class="fas fa-tint"></i><label asp-for="Humidity"></label>
             <span class="badge">@Model.Humidity %</span>
             <br />
 
-            <label asp-for="Pressure"></label>
+            <i class="far fa-gem"></i><label asp-for="Pressure"></label>
             <span class="badge">@Model.Pressure Hpa</span>
             <br />
 
-            <label asp-for="Wind"></label>
+            <i class="fas fa-wind"></i><label asp-for="Wind"></label>
             <span class="badge">@Model.Wind Km/h</span>
             <br />
 
-            <label asp-for="Weather"></label>
+            <i class="fab fa-skyatlas"></i><label asp-for="Weather"></label>
             <span class="badge">@Model.Weather</span>
             <br />
 
-            <label asp-for="Clouds"></label>
+            <i class="fas fa-cloud"></i><label asp-for="Clouds"></label>
             <span class="badge">@Model.Clouds </span>
             <br />
 
-            <label asp-for="Sunshine"></label>
+            <i class="fas fa-sun"></i><label asp-for="Sunshine"></label>
             <span class="badge">@Model.Sunshine </span>
             <br />
 
-            <label asp-for="Sunrise"></label>
+            @*<label asp-for="Sunrise"></label>
             <span class="badge">@Model.Sunrise </span>
-            <br />
+            <br />*@
 
         </div>
 

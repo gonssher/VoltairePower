@@ -33,8 +33,7 @@ namespace VoltairePower.Models
         public bool clean_elect_equipment { get; set; }
         [Display(Name = "Monitor System for Voltage and Current")]
         public bool monitor_volt_current { get; set; }
-
-        public int CustomerID { get; set; }
+               public int CustomerID { get; set; }
         public Customer Customer { get; set; }
 
   
