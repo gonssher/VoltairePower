@@ -65,7 +65,7 @@
                         <li><a href="../../PredictedChart"><i class="fa fa-chart-bar"></i>String Current</a></li>
                         <li><a href="@Url.Action("SearchCity","Weather")"><i class="fas fa-sun"></i>Local Weather</a></li>@**@
                         <li><a href="@Url.Action("Create", "Checklists")"><i class="fa fa-info"></i>Checklist</a></li>
-                        <li><a href="#)"><i class="fas fa-map-marked-alt"></i>Map</a></li>@*@Url.Action("Map", "Home")*@
+                        <li><a href="@Url.Action("Map", "Maps")"><i class="fas fa-map-marked-alt"></i>Map</a></li>@*@Url.Action("Map", "Home")*@
                     </ul>
                 </li>
                 <li>
@@ -78,8 +78,8 @@
                 <li>
                     <a href="#settingSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> <i class="fa fa-cogs"></i> <span class="nav-label">Complaints & Reports </span></a>
                     <ul class="collapse list-unstyled" id="settingSubMenu">
-                        <li><a href="#"><i class="fa fa-exclamation-triangle"></i>System Complaints</a></li> @*@Url.Action("Create", "UnplannedEvents")*@
-                        <li><a href="#"><i class="fas fa-bug"></i>Reports</a></li> @*@Url.Action("CustomerReports", "Unplannedevents")*@
+                        <li><a href="@Url.Action("Create", "UnplannedEvents")"><i class="fa fa-exclamation-triangle"></i>System Complaints</a></li> @*@Url.Action("Create", "UnplannedEvents")*@
+                        <li><a href="@Url.Action("CustomerReports", "Unplannedevents")"><i class="fas fa-bug"></i>Reports</a></li> @*@Url.Action("CustomerReports", "Unplannedevents")*@
                     </ul>
                 </li>
             </ul>

@@ -1,6 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Data;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Diagnostics;
 
 
@@ -19,7 +18,7 @@ namespace UnitTestProjectDataDriven
             set { _testContext = value; }
         }
 
-        [TestMethod]
+        //[TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingEmail()
@@ -44,7 +43,7 @@ namespace UnitTestProjectDataDriven
 
    
 
-        [TestMethod]
+        //[TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingPassword()
@@ -63,7 +62,7 @@ namespace UnitTestProjectDataDriven
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2); 
         }
 
-        [TestMethod]
+        //[TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingStreetNumber()
@@ -83,7 +82,7 @@ namespace UnitTestProjectDataDriven
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
-        [TestMethod]
+      //  [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingStreetName()
@@ -102,7 +101,7 @@ namespace UnitTestProjectDataDriven
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
-        [TestMethod]
+    //    [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingMobileNumber()
@@ -120,7 +119,8 @@ namespace UnitTestProjectDataDriven
             nUnitCases.makeSureNumberIsValid(variable1, variable2);
 
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
-        }
+
+          }
 
 
          [TestMethod]
@@ -137,10 +137,11 @@ namespace UnitTestProjectDataDriven
             TestingNUnitCases nUnitCases = new TestingNUnitCases();
 
 
-            nUnitCases.makeSureValid(variable1, variable2);
+          //  nUnitCases.makeSureValid(variable1, variable2);
 
-
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
+            Assert.Fail("sheldon2", "sheldon2");
+        
+        //Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
 

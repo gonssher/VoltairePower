@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -139,12 +139,6 @@ namespace VoltairePower.Models
         [Display(Name = "Stand Alone")]
         StandAlone
     }
-
-    //public enum ArrayLoc
-    //{ 
-    //    Latitude,
-    //    Longitude
-    //}
 
     public enum WireGauge
     {

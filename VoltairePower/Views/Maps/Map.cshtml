@@ -1,3 +1,4 @@
+@model VoltairePower.Models.SolarSheetDetail
 @{
     Layout = "~/Views/Shared/_Layout_Authorized_Customers.cshtml";
     ViewData["Title"] = "Map";
@@ -8,14 +9,11 @@
 </head>
 <body onLoad="DisplayGoogleMap();">
     <div id="myDiv" style="width:100%;height:400px;"></div>
-
-
-
     <script type="text/javascript">
-        function DisplayGoogleMap() {
+    function DisplayGoogleMap() {
 
             //Set the Latitude and Longitude of the Map
-            var myAddress = new google.maps.LatLng(35.7361373, -81.2160594);
+            var myAddress = new google.maps.LatLng(@Html.DisplayFor(modelItem => modelItem.ArrayLocation), @Html.DisplayFor(modelItem => modelItem.ArrayLocationLong));
 
             //Create Options or set different Characteristics of Google Map
             var mapOptions = {
@@ -37,14 +35,15 @@
             marker.setMap(map);
         }
     </script>
+    <br />
+    Postal Code : @Html.DisplayFor(modelItem => modelItem.Customer.PostalCode)
+    <br />
+    Address : @Html.DisplayFor(modelItem => modelItem.Customer.StreetNumber) @Html.DisplayFor(modelItem => modelItem.Customer.StreetName)
+    <br />
+
+    Registered Solar Panel Date :  @Html.DisplayFor(modelItem => modelItem.Customer.CreatedDate)
 
     <br />
-    Country : USA
-    <br />
-    State : North Carolina
-    <br />
-    Address : 3660 Lai Ber Dr, Conover, NC 28613, United States
-
 
 </body>
 </html>
