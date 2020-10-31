@@ -25,10 +25,6 @@ namespace VoltairePower.Controllers
             return View();
         }
 
-
-
-
-
         public async Task<IActionResult> Map(int? id)
         {
             id = (int)HttpContext.Session.GetInt32("CustomerId");

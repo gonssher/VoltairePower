@@ -10,9 +10,6 @@ namespace VoltairePower.Models.Dao_Graph
 {
     public class PopulatingLineGraph
     {
-
-
-
         public List<ChartData> GetChartData(string connectionString)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -36,22 +33,17 @@ namespace VoltairePower.Models.Dao_Graph
 
                     //SELECT Id, FORMAT(Timestamp, 'MM.dd HH:mm') AS Timestamp, TranslatedVoltage, Voltage FROM LineChart
 
-
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader dr = command.ExecuteReader())
                         {
                             while (dr.Read())
                             {
-
-
                                 ChartData chartData = new ChartData();
-
                                 chartData.Id = Convert.ToInt32(dr["Id"]);
                                 chartData.TimeStamp = dr["TimeStamp"].ToString();
                                 chartData.TranslatedVoltage = Convert.ToDouble(dr["TranslatedVoltage"]);
                                 chartData.Voltage = Convert.ToDouble(dr["Voltage"]);
-
                                 chartDataList.Add(chartData);
                             }
                         }

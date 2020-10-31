@@ -44,8 +44,6 @@ namespace VoltairePower.Models.Dao_Graph
 
 
                                 PredictedAnalysis chartData = new PredictedAnalysis();
-
-                                //                                chartData.Id = Convert.ToInt32(dr["Id"]);
                                 chartData.ExtraplatedCurrent = Convert.ToDouble(dr["ExtraplatedCurrent"]);
                                 chartData.Timestamp = dr["TimeStamp"].ToString();
                                 chartData.PredictedCurrent = Convert.ToDouble(dr["PredictedCurrent"]);
