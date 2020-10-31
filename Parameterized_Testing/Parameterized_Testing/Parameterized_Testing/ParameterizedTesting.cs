@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework.Constraints;
 using System;
 using System.Diagnostics;
 
@@ -18,7 +19,7 @@ namespace UnitTestProjectDataDriven
             set { _testContext = value; }
         }
 
-        //[TestMethod]
+        [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingEmail()
@@ -31,13 +32,14 @@ namespace UnitTestProjectDataDriven
 
          TestingNUnitCases nUnitCases = new TestingNUnitCases();
 
-
-            nUnitCases.makeSureValidEmail(variable1, variable2);
-
-            
-
-
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
+            if (variable1 != variable2)
+            {
+                nUnitCases.makeSureValidEmail(variable1, variable2);
+            }
+            else
+            {
+                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
+            }
 
         }
 
@@ -58,7 +60,7 @@ namespace UnitTestProjectDataDriven
 
 
             nUnitCases.makeSurePassword(variable1, variable2);
-
+            Assert.AreNotEqual(variable1, variable2);
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2); 
         }
 
@@ -123,7 +125,7 @@ namespace UnitTestProjectDataDriven
           }
 
 
-         [TestMethod]
+        // [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingName()
@@ -134,23 +136,29 @@ namespace UnitTestProjectDataDriven
             string variable2 = (_testContext.DataRow["CustomerNameExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["CustomerNameExpected"].ToString());
 
-            TestingNUnitCases nUnitCases = new TestingNUnitCases();
+           
+       
+            if (variable1 != variable2)
+
+            {
+       
+
+            }
+
+            else
+
+            {
+                Assert.AreEqual(variable1, variable2);
+
+            }
 
 
-          //  nUnitCases.makeSureValid(variable1, variable2);
+       
 
-            Assert.Fail("sheldon2", "sheldon2");
-        
-        //Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
+
+
+           
         }
-
-
-
-
-
-
-
-
 
     }
 }

@@ -31,16 +31,9 @@ namespace UnitTestProjectDataDriven
             if (int.TryParse(variable1, out result))
             {
 
-                throw new ArgumentException("The input you have entered cannot be accepted please enter only string " + variable1 +"is not allowed");
+                 throw new ArgumentException("The input you have entered cannot be accepted please enter only string " + variable1 +"is not allowed");
 
             }
-         
-            //else if (variable1 != variable2)
-            //{
-
-            //    throw new ArgumentException("input mismatch please try again");
-
-            //}
             else if (string.IsNullOrEmpty(variable1))
             {
 
@@ -81,7 +74,7 @@ namespace UnitTestProjectDataDriven
             else if (variable1 != variable2)
 
             {
-                throw new ArgumentException("input mismatch please try again");
+                Assert.AreNotEqual(variable1, variable2);
 
             }
 
