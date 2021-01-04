@@ -10,7 +10,6 @@ namespace VoltairePower.Repositories
     public interface IForecastRepository
     {
         WeatherResponse GetForecast(string city);
-
         void Add(City city);
     }
 }

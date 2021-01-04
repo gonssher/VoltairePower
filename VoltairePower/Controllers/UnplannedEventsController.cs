@@ -67,14 +67,14 @@ namespace VoltairePower.Controllers
 
             if (id == null)
             {
-                return RedirectToAction("NotFound", "UnplannedEvents");
+                return RedirectToAction("Create", "UnplannedEvents");
             }
 
             var unplaanedEvent = _context.UnplannedEvent.Where(m => m.CustomerID == id).ToList();
 
             if (unplaanedEvent == null)
             {
-                return RedirectToAction("NotFound", "UnplannedEvents");
+                return RedirectToAction("Create", "UnplannedEvents");
             }
 
             return View(unplaanedEvent);

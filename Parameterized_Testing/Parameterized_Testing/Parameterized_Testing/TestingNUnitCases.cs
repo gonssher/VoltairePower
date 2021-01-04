@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -66,7 +67,7 @@ namespace UnitTestProjectDataDriven
             else if (!variable1.Contains('@'))
             {
 
-                throw new ArgumentException("input field is blank Please re try");
+              
                 throw new ArgumentException("Please input the email with @ " + variable1 + "Your email doesnt have an @");
 
 
@@ -77,8 +78,6 @@ namespace UnitTestProjectDataDriven
                 Assert.AreNotEqual(variable1, variable2);
 
             }
-
-
 
             return content;
 

@@ -2,6 +2,7 @@
 using NUnit.Framework.Constraints;
 using System;
 using System.Diagnostics;
+using basic.math;
 
 
 
@@ -20,6 +21,31 @@ namespace UnitTestProjectDataDriven
         }
 
         [TestMethod]
+        public int Squaring(int number1)
+        {
+            number1 = 5;
+            int result = number1 * number1;
+            Console.WriteLine(result);
+            return result;
+
+       
+            
+       }
+        [TestMethod]
+        public int SquaringNumber2(int number2)
+        {
+            number2 = 25;
+            int result = number2 * number2;
+            Console.WriteLine(result);
+            return result;
+
+        }
+
+        
+
+
+
+        //        [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingEmail()
@@ -34,7 +60,8 @@ namespace UnitTestProjectDataDriven
 
             if (variable1 != variable2)
             {
-                nUnitCases.makeSureValidEmail(variable1, variable2);
+
+                Assert.AreNotEqual(variable1, variable2);
             }
             else
             {
@@ -82,7 +109,7 @@ namespace UnitTestProjectDataDriven
             Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
-      //  [TestMethod]
+     //  [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingStreetName()
@@ -93,15 +120,20 @@ namespace UnitTestProjectDataDriven
             string variable2 = (_testContext.DataRow["StreetNameExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["StreetNameExpected"].ToString());
 
-            TestingNUnitCases nUnitCases = new TestingNUnitCases();
 
+            if (variable1 != variable2)
+            {
 
-            nUnitCases.makeSureValid(variable1, variable2);
+                Assert.AreNotEqual(variable1, variable2);
+            }
+            else
+            {
+                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
+            }
 
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
         }
 
-    //    [TestMethod]
+        //    [TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingMobileNumber()
@@ -123,7 +155,7 @@ namespace UnitTestProjectDataDriven
           }
 
 
-        // [TestMethod]
+      //[TestMethod]
         [DeploymentItem("c:\\demo\\data.xls")]
         [DataSource("MyExcelDataSource")]
         public void TestingName()
@@ -134,28 +166,16 @@ namespace UnitTestProjectDataDriven
             string variable2 = (_testContext.DataRow["CustomerNameExpected"].ToString());
             Trace.WriteLine(_testContext.DataRow["CustomerNameExpected"].ToString());
 
-           
-       
             if (variable1 != variable2)
-
             {
-       
 
+                Assert.AreNotEqual(variable1, variable2);
             }
-
             else
-
             {
-                Assert.AreEqual(variable1, variable2);
-
+                Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(variable1, variable2);
             }
 
-
-       
-
-
-
-           
         }
 
     }
